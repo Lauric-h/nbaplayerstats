@@ -45,9 +45,9 @@ The data will be used to make a website to compare players stats over the years.
 * [X] Récupérer l'année d'avant et l'afficher
 * Clean les data CSV (name + doublons + casse)
   * Trouver un endroit où mettre la logique create table + insertion des nouvelles données
-  * Clean data deja enregistrée ou recommencer
+  * [X] Clean data deja enregistrée
 * Transformer la recherche avec la casse ?
-* /!\ Retirer la propsition des années => pas besoin, juste un joueur et comparer avec l'année d'avant
+* /!\ Retirer la proposition des années => pas besoin, juste un joueur et comparer avec l'année d'avant
 * Faire toutes les années (5ans)
 * Gérer les erreurs => pas 5 années de stats
 * Automatiser la recherche des années précédentes

@@ -5,24 +5,22 @@ use App\Config;
 use App\Database;
 require '../app/handlePost.php';
 
-$conn = (new Config())->connect();
-$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-$db = new Database($conn);
+// $conn = (new Config())->connect();
+// $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+// $db = new Database($conn);
 
-$table = 'year_2018';
+// $table = 'year_2021';
 
-$db->createTable($table);
+// $db->create($table);
 
-$filehandle = fopen('../db/' . $table . '.csv', 'r') or die('error');
+// $filehandle = fopen('../db/' . $table . '.csv', 'r') or die('error');
 
-while(($row = fgetcsv($filehandle, 0, ',')) !== false) {
+// while(($row = fgetcsv($filehandle, 0, ',')) !== false) {
 
-    $db->insertData($table, $row);
-}         
+//     $db->store($table, $row);
+// }         
 
-fclose($filehandle);
-
-
+// fclose($filehandle);
 ?>
 
 <!-- only for display tests -->

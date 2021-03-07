@@ -17,7 +17,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $name = test_input($_POST['name']);
         $year = test_input($_POST['year']);
 
-        var_dump($name);
         echo '<br>';
         var_dump($year);
         echo '<br>';
@@ -27,11 +26,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $db = new Database($conn);
 
-        var_dump($db);
-        die();
 
         // Fetch data from DB
-        $result = $db->getData($year, $name);
+        $result = $db->index($year, $name);
         if (!$result) {
             $error = "Joueur non trouvé";
             $name = ""; // reset variable
@@ -43,7 +40,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             }
         }
 
-        $year_2020 = $db->getData('year_2020', $name);
+        $year_2020 = $db->index('year_2020', $name);
         if (!$year_2020) {
             $error = "Joueur non trouvé";
             $name = ""; // reset variable
