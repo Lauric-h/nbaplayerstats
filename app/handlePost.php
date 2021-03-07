@@ -37,7 +37,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $years[$season] = $result;
             }
         }
-        dump($years);
+        dump(json_encode($years));
+        die();
     }   
 }
 ?>

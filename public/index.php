@@ -1,3 +1,5 @@
+<!-- sert de front controller -->
+
 <?php
     require '../app/handlePost.php';
 ?>
