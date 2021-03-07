@@ -1,6 +1,7 @@
 {
     "require": {
-        "fabpot/goutte": "^4.0"
+        "fabpot/goutte": "^4.0",
+        "symfony/var-dumper": "^5.2"
     },
     "autoload": {
         "psr-4": {

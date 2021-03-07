@@ -1,7 +1,9 @@
 <?php
 
-// where logic is handled
-// need to be refactored properly
+/* 
+* where logic is handled
+* need to be refactored properly
+*/ 
 
 require_once '../vendor/autoload.php';
 require 'helpers.php';
@@ -14,37 +16,28 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (empty($_POST['name'])) {
         $error = 'Veuillez renseigner le nom';
     } else {
-        $name = test_input($_POST['name']);
+        $seasons = ['year_2021', 'year_2020', 'year_2019', 'year_2018', 'year_2017'];
+        $years = [];
 
+        $name = ucwords(test_input($_POST['name']));
+        
         // Connect to DB
         $conn = (new Config())->connect();
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $db = new Database($conn);
 
-        // Fetch data from DB
-        $result = $db->index($year, $name);
-        if (!$result) {
-            $error = "Joueur non trouvé";
-            $name = ""; // reset variable
-            $year = ""; // reset variable
-        } else {
+        foreach($seasons as $season) {
+            // dump($year);
+            $result = $db->show($season, $name);
             // remove first two values of array
             for ($i = 0; $i < 2; $i++) {
                 array_shift($result);
             }
-        }
-
-        $year_2020 = $db->index('year_2020', $name);
-        if (!$year_2020) {
-            $error = "Joueur non trouvé";
-            $name = ""; // reset variable
-            $year = ""; // reset variable
-        } else {
-            // remove first two values of array
-            for ($i = 0; $i < 2; $i++) {
-                array_shift($year_2020);
+            if ($result) {
+                $years[$season] = $result;
             }
         }
+        dump($years);
     }   
 }
 ?>

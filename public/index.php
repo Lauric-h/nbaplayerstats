@@ -1,29 +1,8 @@
 <?php
-
-// for test only : needs to be refactored
-use App\Config;
-use App\Database;
-require '../app/handlePost.php';
-
-// $conn = (new Config())->connect();
-// $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-// $db = new Database($conn);
-
-// $table = 'year_2021';
-
-// $db->create($table);
-
-// $filehandle = fopen('../db/' . $table . '.csv', 'r') or die('error');
-
-// while(($row = fgetcsv($filehandle, 0, ',')) !== false) {
-
-//     $db->store($table, $row);
-// }         
-
-// fclose($filehandle);
+    require '../app/handlePost.php';
 ?>
 
-<!-- only for display tests -->
+<!-- only for testing -->
 
 <!DOCTYPE html>
 <html lang="fr">
@@ -39,23 +18,14 @@ require '../app/handlePost.php';
         <p><?= $error ?></p>
         <label for="name">Nom du joueur</label> 
         <input type="text" name="name" id="name" placeholder="nom du joueur" required>
-
-        <label for="year">Année</label>
-        <select name="year" id="year" required>
-            <option value="">-- sélectionner --</option>
-            <option value="year_2020">2019-2020</option>
-            <option value="year_2021">2020-2021</option>
-        </select>
-
         <button type="submit">Go ! </button>
     </form>
 
     <?php
-        if ($_SERVER['REQUEST_METHOD'] === 'POST' && ($error === null || empty($error))) {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST' && ($error === null || empty($error))) {    
         ?>
-             <div>
-                <h2>Stats de <?= $name ?> <i class="fas fa-basketball-ball"></i></h2>
-
+            <h2>Stats de <?= $name ?></h2>
+            <?php foreach($years as $year): ?>
                 <table>
                     <thead>
                         <tr>
@@ -89,67 +59,21 @@ require '../app/handlePost.php';
                             <th>PTS</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr>
-                            <?php
-                                foreach($result as $key => $value) {
-                                    echo "<td>{$value}</td>";
-                                }
-                            ?>
-                        </tr>
-                    </tbody>
+                        <tbody>
+                            <tr>
+                                <?php foreach($year as $key => $value): ?>
+                                    <?php echo "<td>{$value}</td>" ?>
+                                <?php endforeach ?>
+                            </tr>
                 </table>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Position</th>
-                            <th>Age</th>
-                            <th>Team</th>
-                            <th>G</th>
-                            <th>GS</th>
-                            <th>MP</th>
-                            <th>FG</th>
-                            <th>FGA</th>
-                            <th>FG%</th>
-                            <th>3P</th>
-                            <th>3PA</th>
-                            <th>3P%</th>
-                            <th>2P</th>
-                            <th>2PA</th>
-                            <th>2P%</th>
-                            <th>eF%</th>
-                            <th>FT</th>
-                            <th>FTA</th>
-                            <th>FT%</th>
-                            <th>ORB</th>
-                            <th>DRB</th>
-                            <th>TRB</th>
-                            <th>AST</th>
-                            <th>STL</th>
-                            <th>BLK</th>
-                            <th>TOV</th>
-                            <th>PF</th>
-                            <th>PTS</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <?php
-                                foreach($year_2020 as $key => $value) {
-                                    echo "<td>{$value}</td>";
-                                }
-                            ?>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+                <?php $season-- ?>
+            <?php endforeach ?>
+             
         <?php
         }
     ?>
 
-    
-                            
-    
+                               
 </body>
 
 <footer>Made with <i class="fas fa-heart"></i> by Lauric</footer>

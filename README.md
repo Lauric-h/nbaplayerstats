@@ -34,7 +34,7 @@ The data will be used to make a website to compare players stats over the years.
 
 ***
 ## Project Management / To Do :
-* ~~Essayer d'organiser les résultats / ligne~~
+* ~~Essayer d'organiser les résultats / ligne~~ 
 * [X] Créer BDD
 * [X] Vérifier que la BDD soit bien créée
 * [X] Ecrire en BDD les résultats
@@ -43,19 +43,18 @@ The data will be used to make a website to compare players stats over the years.
 * [X] Gérer les erreurs : Nom non trouvé ou invalide
 * [X] Display les résultats du formulaire en table
 * [X] Récupérer l'année d'avant et l'afficher
-* Clean les data CSV (name + doublons + casse)
-  * Trouver un endroit où mettre la logique create table + insertion des nouvelles données
+* [X] Clean les data CSV (name + doublons + casse)
   * [X] Clean data deja enregistrée
-* Transformer la recherche avec la casse ?
-* /!\ Retirer la proposition des années => pas besoin, juste un joueur et comparer avec l'année d'avant
-* Faire toutes les années (5ans)
-* Gérer les erreurs => pas 5 années de stats
-* Automatiser la recherche des années précédentes
-* Automatiser la recherche de l'année en cours
+* [X] Trouver un endroit où mettre la logique create table + insertion des nouvelles données
+* [X] Transformer la recherche avec la casse ?
+* [X] /!\ Retirer la proposition des années => pas besoin, juste un joueur et comparer avec l'année d'avant
+* [X] Faire toutes les années (5ans)
+* [X] Gérer les erreurs => pas 5 années de stats
 * Display les résultats du formulaire en chart
 * Ajout try/catch et exception pour les requêtes
 * Controller / Route
 * Front : framework JS ? Tailwind ?
+* Automatiser la recherche de l'année en cours
 
 
 
