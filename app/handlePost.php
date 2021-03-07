@@ -11,21 +11,15 @@ use App\Database;
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $error = null;
 
-    if (empty($_POST['name']) || empty($_POST['year'])) {
-        $error = 'Veuillez renseigner tous les champs';
+    if (empty($_POST['name'])) {
+        $error = 'Veuillez renseigner le nom';
     } else {
         $name = test_input($_POST['name']);
-        $year = test_input($_POST['year']);
-
-        echo '<br>';
-        var_dump($year);
-        echo '<br>';
 
         // Connect to DB
         $conn = (new Config())->connect();
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $db = new Database($conn);
-
 
         // Fetch data from DB
         $result = $db->index($year, $name);
@@ -51,8 +45,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 array_shift($year_2020);
             }
         }
-
-    
     }   
 }
 ?>
