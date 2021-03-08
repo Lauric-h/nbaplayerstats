@@ -54,7 +54,7 @@ The data will be used to make a website to compare players stats over the years.
   * Faire routing
     * GET / => homepage : web.php
     * GET /api/player/nomdujoueur => retourne en json les stats : api.php
-  * Faire méthodes Player
+  * [X] Faire méthodes Player
     * $name
     * $PDO
     * $array data

@@ -1,6 +1,8 @@
 <?php
 
 namespace App;
+
+use PDO;
 require_once '../vendor/autoload.php';
 
 /**
@@ -15,16 +17,14 @@ class Player {
   public string $name;
 
   /**
-   * String year
-   * @var string
-   */
-  public string $year;
-
-  /**
    * Array of stats
    * @var array
    */
   public array $stats;
+
+  private PDO $db;
+  private array $seasons = ['year_2021', 'year_2020', 'year_2019', 'year_2018', 'year_2017'];
+  private array $years = [];
 
   /**
    * Constructor
@@ -33,8 +33,45 @@ class Player {
    * @param string $year
    * @return void
    */
-  public function construct(string $name, string $year): void {
+  public function construct(PDO $db, string $name): void {
+    $this->db = $db;
     $this->name = $name;
-    $this->year = $year;
   }
+
+  /**
+   * Search into DB for name
+   *
+   * @param string $table
+   * @return array
+   */
+  private function find(string $table): array {
+    $request = $this->db->prepare('SELECT * FROM ' . $table . ' WHERE name = ? COLLATE NOCASE');
+    $request->execute(array($this->name));
+    $result = $request->fetch(PDO::FETCH_ASSOC);
+    if (!$result) {
+        $result = null;
+    }
+    return $result;
+  }
+
+  /**
+   * Get array of data
+   *
+   * @return array
+   */
+  public function show(): array {
+    foreach($this->seasons as $season) {
+      $result = $this->find($season);
+      // remove first two values of array
+      for ($i = 0; $i < 2; $i++) {
+          array_shift($result);
+      }
+      if ($result) {
+          $this->years[$season] = $result;
+      }
+    }
+    return $this->years;
+  }
+
+
 }

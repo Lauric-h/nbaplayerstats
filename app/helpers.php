@@ -1,4 +1,5 @@
 <?php
+namespace App;
 // helper function
 // might include this inside Database class
 

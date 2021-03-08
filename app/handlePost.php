@@ -19,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $seasons = ['year_2021', 'year_2020', 'year_2019', 'year_2018', 'year_2017'];
         $years = [];
 
-        $name = ucwords(test_input($_POST['name']));
+        $name = ucwords(test_input($_GET['name']));
         
         // Connect to DB
         $conn = (new Config())->connect();
