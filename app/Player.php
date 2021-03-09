@@ -6,8 +6,7 @@ use PDO;
 require_once '../vendor/autoload.php';
 
 /**
- * stock les stats par année
- * un objet = un joueur sur une année
+ * stores stats of a player
  */
 class Player {
   /**
@@ -22,8 +21,19 @@ class Player {
    */
   public array $stats;
 
+  /**
+   * DB connection
+   */
   private PDO $db;
+
+  /**
+   * Array of seasons handled
+   */
   private array $seasons = ['year_2021', 'year_2020', 'year_2019', 'year_2018', 'year_2017'];
+
+  /**
+   * Contains stats of player
+   */
   private array $years = [];
 
   /**

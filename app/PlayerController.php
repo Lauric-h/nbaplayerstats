@@ -9,13 +9,17 @@ use function App\test_input;
 $conn = (new Config)->connect;
 $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-$name = ucwords(test_input($_GET['name']));
+dump($uri);
+dump($name);
+
+$name = ucwords(test_input($uri[2]));
 $player = new Player($conn, $name);
 $stats = $player->show();
 if ($stats) {
   // on retourne en json les stats
 } else {
   // on retourne la home avec un message d'erreur
+  header('Location:/homepage.php');
 }
 
 
