@@ -3,7 +3,7 @@
 namespace App;
 
 use PDO;
-require_once '../vendor/autoload.php';
+require_once 'vendor/autoload.php';
 
 /**
  * stores stats of a player
@@ -24,7 +24,7 @@ class Player {
   /**
    * DB connection
    */
-  private PDO $db;
+  public PDO $db;
 
   /**
    * Array of seasons handled
@@ -54,7 +54,7 @@ class Player {
    * @param string $table
    * @return array
    */
-  private function find(string $table): array {
+  public function find(string $table): array {
     $request = $this->db->prepare('SELECT * FROM ' . $table . ' WHERE name = ? COLLATE NOCASE');
     $request->execute(array($this->name));
     $result = $request->fetch(PDO::FETCH_ASSOC);

@@ -9,7 +9,7 @@
     <title>NBA stats</title>
 </head>
 <body>
-  <form action="<?= htmlspecialchars("/player/{name}");?>" method="get">
+  <form action="<?= htmlspecialchars("/player");?>" method="get">
     <p><?= $error ?></p>
     <label for="name">Nom du joueur</label> 
     <input type="text" name="name" id="name" placeholder="nom du joueur" required>

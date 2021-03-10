@@ -1,20 +1,28 @@
 <?php
-require_once '../vendor/autoload.php';
+namespace App;
+require_once '/home/lauric/Bureau/dev/nba_scrape/vendor/autoload.php';
 require 'helpers.php';
-use App\Player;
+use PDO;
 use App\Config;
-
+use App\Player;
 use function App\test_input;
 
-$conn = (new Config)->connect;
+
+$name = explode('=', $uri['query']);
+$name = ucwords(test_input($name[1]));
+
+$conn = (new Config()) ->connect();
 $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-dump($uri);
-dump($name);
-
-$name = ucwords(test_input($uri[2]));
+$db = new Database($conn);
 $player = new Player($conn, $name);
+dump($player->name);
+die();
+
 $stats = $player->show();
+
+
+die();
+
 if ($stats) {
   // on retourne en json les stats
 } else {

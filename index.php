@@ -1,5 +1,8 @@
 <?php
 // Front controller 
+
+use App\Config;
+
 require_once 'vendor/autoload.php';
 // header("Access-Control-Allow-Origin: *");
 // header("Content-Type: application/json; charset=UTF-8");
@@ -7,9 +10,14 @@ require_once 'vendor/autoload.php';
 // header("Access-Control-Max-Age: 3600");
 // header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
 
-$uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
-$uri = explode( '/', $uri );
+$uri = parse_url($_SERVER['REQUEST_URI']);
 
+
+
+// dump($uri);
+// dump($uri['query']);
+
+// dump($name);
 // parameters are only 'player' or nothing
 // if ($uri[1] !== 'player' || $uri[1] !== '/') {
 //   header("HTTP/1.1 404 Not Found");
@@ -17,9 +25,9 @@ $uri = explode( '/', $uri );
 // }
 
 // 
-dump($uri);
+
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-  switch($uri[1]) {
+  switch($uri['path']) {
     case "": 
       include 'public/homepage.php';
       break;
