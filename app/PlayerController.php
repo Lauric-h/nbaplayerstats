@@ -5,29 +5,25 @@ require 'helpers.php';
 use PDO;
 use App\Config;
 use App\Player;
-use function App\test_input;
 
+// clean up data
+$name = clean_input($uri);
 
-$name = explode('=', $uri['query']);
-$name = ucwords(test_input($name[1]));
-
+// connect to DB
 $conn = (new Config()) ->connect();
 $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 $db = new Database($conn);
-$player = new Player($conn, $name);
-dump($player->name);
-die();
 
+// lookup for stats 
+$player = new Player($conn, $name);
 $stats = $player->show();
 
-
-die();
-
 if ($stats) {
+  dump($stats);
   // on retourne en json les stats
 } else {
   // on retourne la home avec un message d'erreur
-  header('Location:/homepage.php');
+  header('Location:public/homepage.php');
 }
 
 

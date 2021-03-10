@@ -11,3 +11,16 @@ function test_input($data) {
   return $data;
 }            
 
+/**
+ *  Clean up parameters passed into uri
+ *
+ * @param array $uri
+ * @return string
+ */
+function clean_input(array $uri): string {
+  $data = explode('=', $uri['query']);
+  $data = explode('+', $data[1]);
+  $data = join(' ', $data);
+  $data = ucwords(test_input($data));
+  return $data;
+}

@@ -55,18 +55,21 @@ The data will be used to make a website to compare players stats over the years.
     * GET / => homepage : web.php
     * GET /api/player/nomdujoueur => retourne en json les stats : api.php
   * [X] Faire méthodes Player
-    * $name
-    * $PDO
-    * $array data
-    * private setData() => logique de handlePost
-    * public show() => renvoie $data
-  * Faire PlayerController
-    * Utilisation de Player
-  * Réorganiser les dossiers
+    * [X] $name
+    * [X] $PDO
+    * [X] $array data
+    * [X] private find()
+    * [X] public show() => renvoie $data
+  * [X] Faire PlayerController
+    * [X] Utilisation de Player
+  * Remplacer les c des joueurs de l'est // 'ć', 'c'
+  * Réorganiser les dossiers ?
     * app/database
     * app/controller
 * Display les résultats du formulaire en chart
 * Ajout try/catch et exception pour les requêtes
+* Sécurité
+  * token csrf formulaire
 * Front : framework JS ? Tailwind ?
 * Automatiser la recherche de l'année en cours
 

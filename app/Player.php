@@ -16,23 +16,24 @@ class Player {
   public string $name;
 
   /**
-   * Array of stats
-   * @var array
-   */
-  public array $stats;
-
-  /**
    * DB connection
    */
-  public PDO $db;
+  private PDO $db;
 
   /**
    * Array of seasons handled
+   * Hardcoded and fixed for now
    */
-  private array $seasons = ['year_2021', 'year_2020', 'year_2019', 'year_2018', 'year_2017'];
+  private array $seasons = [
+    'year_2021', 
+    'year_2020', 
+    'year_2019', 
+    'year_2018', 
+    'year_2017',
+  ];
 
   /**
-   * Contains stats of player
+   * Contains stats of player per year
    */
   private array $years = [];
 
@@ -41,20 +42,19 @@ class Player {
    *
    * @param string $name
    * @param string $year
-   * @return void
    */
-  public function construct(PDO $db, string $name): void {
+  public function __construct(PDO $db, string $name) {
     $this->db = $db;
     $this->name = $name;
   }
-
+  
   /**
    * Search into DB for name
    *
    * @param string $table
    * @return array
    */
-  public function find(string $table): array {
+  private function find(string $table): ?array {
     $request = $this->db->prepare('SELECT * FROM ' . $table . ' WHERE name = ? COLLATE NOCASE');
     $request->execute(array($this->name));
     $result = $request->fetch(PDO::FETCH_ASSOC);
