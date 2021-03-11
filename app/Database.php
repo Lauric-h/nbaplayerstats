@@ -84,6 +84,13 @@ class Database {
     private function cleanData(string $name): string {
         $pattern = "/\\\\.*/m";
         $name = preg_replace($pattern, '', $name);
+        $name = str_replace('č', 'c', $name);
+        $name = str_replace('ć', 'c', $name);
+        $name = str_replace('ý', 'y', $name);
+        $name = str_replace('á', 'a', $name);
+        $name = str_replace('Š', 'S', $name);
+        $name = str_replace('š', 's', $name);
+
         return $name;
     }
 

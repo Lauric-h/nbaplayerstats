@@ -19,7 +19,8 @@ $player = new Player($conn, $name);
 $stats = $player->show();
 
 if ($stats) {
-  dump($stats);
+  header('Content-Type: application/json');
+  echo json_encode($stats);
   // on retourne en json les stats
 } else {
   // on retourne la home avec un message d'erreur

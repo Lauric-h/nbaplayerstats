@@ -9,7 +9,7 @@ use App\Database;
  */
 
 // change table year accordingly
-$table = 'year_2017';
+$table = 'year_2021';
 
 // connect to DB
 $conn = (new Config())->connect();
