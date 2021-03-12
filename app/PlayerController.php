@@ -1,5 +1,11 @@
 <?php
 namespace App;
+header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Methods: GET");
+header("Access-Control-Max-Age: 3600");
+header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
+header("Content-Type: application/json; charset=UTF-8");
+
 require_once '/home/lauric/Bureau/dev/nba_scrape/vendor/autoload.php';
 require 'helpers.php';
 use PDO;
@@ -19,11 +25,8 @@ $player = new Player($conn, $name);
 $stats = $player->show();
 
 if ($stats) {
-  header('Content-Type: application/json');
   echo json_encode($stats);
-  // on retourne en json les stats
 } else {
-  // on retourne la home avec un message d'erreur
   header('Location:public/homepage.php');
 }
 

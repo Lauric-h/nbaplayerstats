@@ -51,10 +51,10 @@ The data will be used to make a website to compare players stats over the years.
 * [X] Faire toutes les années (5ans)
 * [X] Gérer les erreurs => pas 5 années de stats
 * [X] Remplacer les char des joueurs de l'est
-* API
-  * Faire routing - A REVOIR
-    * GET / => homepage
-    * GET /api/player/nomdujoueur => retourne en json les stats 
+* [X] API
+  * [X]Faire routing
+    * [X] GET / => homepage
+    * [X] GET /api/player/nomdujoueur => retourne en json les stats 
   * [X] Faire méthodes Player
     * [X] $name
     * [X] $PDO
@@ -63,15 +63,9 @@ The data will be used to make a website to compare players stats over the years.
     * [X] public show() => renvoie $data
   * [X] Faire PlayerController
     * [X] Utilisation de Player
-
-  * Réorganiser les dossiers ?
-    * app/database
-    * app/controller
-  * Checker les headerm content type etc.  
+  * [X] Checker les header content type etc.  
 * Display les résultats du formulaire en chart
 * Ajout try/catch et exception pour les requêtes
-* Sécurité
-  * token csrf formulaire
 * Front : framework JS ? Tailwind ?
 * Automatiser la recherche de l'année en cours
 

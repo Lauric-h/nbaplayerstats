@@ -103,9 +103,7 @@ class Database {
      */
     public function update(string $table, array $column): void {
         $name = $this->cleanData($column[1]);
-
         $request = $this->pdo->prepare('UPDATE ' . $table . ' SET age = '. $column[1] . ', position = '. $column[2] . ', a = '. $column[2] );
-
     }
 
 }

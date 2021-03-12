@@ -1,10 +1,13 @@
 <?php
 namespace App;
-// helper function
-// might include this inside Database class
 
-// Validate form data
-function test_input($data) {
+/**
+ * Validate form data
+ *
+ * @param string $data
+ * @return void
+ */
+function test_input(string $data): string {
   $data = trim($data);
   $data = stripslashes($data);
   $data = htmlentities($data);
