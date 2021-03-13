@@ -17,6 +17,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     case "/player": 
       include "app/PlayerController.php";
       break;
+    case "/results": 
+      include "public/results.php";
+      // include 'public/homepage.php';
+      break;
     default: 
       include 'public/homepage.php';
       break;

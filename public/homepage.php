@@ -1,3 +1,5 @@
+<?php session_start()
+?>
 <!-- Ici on renvoie la vue de la home -->
 <!DOCTYPE html>
 <html lang="fr">
@@ -15,9 +17,8 @@
     <input type="text" name="name" id="name" placeholder="nom du joueur" required>
     <button type="submit">Go ! </button>
   </form>
-                               
 </body>
 
 <footer>Made with <i class="fas fa-heart"></i> by Lauric</footer>
 
-</html>
+</html>   

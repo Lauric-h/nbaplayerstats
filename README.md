@@ -65,8 +65,14 @@ The data will be used to make a website to compare players stats over the years.
     * [X] Utilisation de Player
   * [X] Checker les header content type etc.  
 * Display les résultats du formulaire en chart
+  * Si il n'y a qu'une année de stats = changer le type de graph
+  * Changer les couleurs des stats
+  * changer les labels des années
+  * Faire un bouton retour vers la recherche
+  * Faire un bouton pour changer le type de graph
 * Ajout try/catch et exception pour les requêtes
-* Front : framework JS ? Tailwind ?
+* Front / CSS 
+* Refactor
 * Automatiser la recherche de l'année en cours
 
 

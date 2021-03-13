@@ -1,10 +1,11 @@
-<?php
+<?php 
 namespace App;
-header("Access-Control-Allow-Origin: *");
-header("Access-Control-Allow-Methods: GET");
-header("Access-Control-Max-Age: 3600");
-header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
-header("Content-Type: application/json; charset=UTF-8");
+session_start();
+// header("Access-Control-Allow-Origin: *");
+// header("Access-Control-Allow-Methods: GET");
+// header("Access-Control-Max-Age: 3600");
+// header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
+// header("Content-Type: application/json; charset=UTF-8");
 
 require_once '/home/lauric/Bureau/dev/nba_scrape/vendor/autoload.php';
 require 'helpers.php';
@@ -24,8 +25,12 @@ $db = new Database($conn);
 $player = new Player($conn, $name);
 $stats = $player->show();
 
+
 if ($stats) {
-  echo json_encode($stats);
+  // echo json_encode($stats);
+  $_SESSION['stats'] = $stats;
+  $_SESSION['name'] = $name;
+  header('Location:/results');
 } else {
   header('Location:public/homepage.php');
 }
