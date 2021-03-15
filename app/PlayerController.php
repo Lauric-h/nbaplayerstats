@@ -32,7 +32,7 @@ if ($stats) {
   $_SESSION['name'] = $name;
   header('Location:/results');
 } else {
-  header('Location:public/homepage.php');
+  header('Location:/');
 }
 
 
