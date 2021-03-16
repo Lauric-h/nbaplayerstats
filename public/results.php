@@ -15,7 +15,7 @@ dump($_SESSION['stats']);
 <body>
   <a href="/">Retour à la recherche</a>
   <h1><?= $_SESSION['name']; ?></h1>
-  <p>Age</p>
+  <p><?= $_SESSION['stats']['year_2021']['age']; ?> ans</p>
   <p>Team</p>
 
   <canvas id="lineChart"></canvas>
@@ -62,137 +62,135 @@ dump($_SESSION['stats']);
   // line chart
   var ctx = document.getElementById('lineChart').getContext('2d');
   var chart = new Chart(ctx, {
-    // The type of chart we want to create
     type: 'line',
-
-    // The data for our dataset
     data: {
         labels: labels,
         datasets: [{
             label: 'points',
-            backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)'
-            ],
-            borderColor: 'rgb(255, 50,  200)',
-            data: points.reverse()
+            borderColor: '#5A9A5F',
+            data: points.reverse(),
+            backgroundColor: '#5A9A5F',
+            fill: false,
         },
         {
           label: 'assists',
+          borderColor: '#003f5c',
           data: assists.reverse(),
-          type: 'line',
-          backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)'
-            ],
+          backgroundColor: '#003f5c',
+          fill: false,
         },
         {
           label: 'rebounds',
+          borderColor: '#ff7c43',
           data: rebounds.reverse(),
-          type: 'line',
-          backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)'
-            ],
+          backgroundColor: '#ff7c43',
+          fill: false,
         }
       ]
     },
-    // Configuration options go here
-    options: {}
 });
 
 var ctx = document.getElementById('barChart').getContext('2d');
 var chart = new Chart(ctx, {
-  // The type of chart we want to create
   type: 'bar',
-
-  // The data for our dataset
   data: {
       labels: labels.reverse(),
       datasets: [{
-          label: '3 points %',
-          backgroundColor: [
-              'rgba(255, 99, 132, 0.2)',
-              'rgba(54, 162, 235, 0.2)',
-              'rgba(255, 206, 86, 0.2)',
-              'rgba(75, 192, 192, 0.2)',
-              'rgba(153, 102, 255, 0.2)',
-              'rgba(255, 159, 64, 0.2)'
-          ],
-          borderColor: 'rgb(255, 50,  200)',
+          label: '2 points %',
+          backgroundColor: '#ec4646',
           data: twoPoints.reverse()
       },
       {
-        label: '2 points %', 
+        label: '3 points %', 
         data: threePoints.reverse(), 
-        type: 'bar',
-        backgroundColor: [
-              'rgba(255, 99, 132, 0.2)',
-              'rgba(54, 162, 235, 0.2)',
-              'rgba(255, 206, 86, 0.2)',
-              'rgba(75, 192, 192, 0.2)',
-              'rgba(153, 102, 255, 0.2)',
-              'rgba(255, 159, 64, 0.2)'
-          ],
+        backgroundColor: '#FDE74C',
       },
       {
         label: 'Free throws %',
         data: freeThrows.reverse(),
-        type: 'bar',
-        backgroundColor: [
-              'rgba(255, 99, 132, 0.2)',
-              'rgba(54, 162, 235, 0.2)',
-              'rgba(255, 206, 86, 0.2)',
-              'rgba(75, 192, 192, 0.2)',
-              'rgba(153, 102, 255, 0.2)',
-              'rgba(255, 159, 64, 0.2)'
-          ],
+        backgroundColor: '#51c2d5',
       }
     ]
   },
-  // Configuration options go here
-  options: {}
+  options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true
+                }
+            }]
+        }
+    }
 });
 
-console.log(doughnutStats['year_2021'][0])
-
-var doughnut = document.getElementById('doughtnutChart2021').getContext('2d');
-var chart = new Chart(doughnut, {
-  // The type of chart we want to create
+var doughnut2021 = document.getElementById('doughtnutChart2021').getContext('2d');
+var chart = new Chart(doughnut2021, {
   type: 'doughnut',
-
-  // The data for our dataset
   data: {
       labels: ['Assists', 'Turnovers', 'Steals'],
       datasets: [{
-          backgroundColor: [
-              'rgba(255, 99, 132, 0.2)',
-              'rgba(54, 162, 235, 0.2)',
-              'rgba(255, 206, 86, 0.2)',
-              'rgba(75, 192, 192, 0.2)',
-              'rgba(153, 102, 255, 0.2)',
-              'rgba(255, 159, 64, 0.2)'
-          ],
+          backgroundColor: ['#003f5c', '#bc5090', '#ffa600'],
           borderColor: 'rgb(255, 50,  200)',
           data: doughnutStats['year_2021'][0]
       },
     ]
   },
-  // Configuration options go here
-  options: {}
 });
 
+var doughnut2020 = document.getElementById('doughtnutChart2020').getContext('2d');
+var chart = new Chart(doughnut2020, {
+  type: 'doughnut',
+  data: {
+      labels: ['Assists', 'Turnovers', 'Steals'],
+      datasets: [{
+        backgroundColor: ['#003f5c', '#bc5090', '#ffa600'],
+        borderColor: 'rgb(255, 50,  200)',
+        data: doughnutStats['year_2020'][0]
+      },
+    ]
+  },
+});
+
+var doughnut2019 = document.getElementById('doughtnutChart2019').getContext('2d');
+var chart = new Chart(doughnut2019, {
+  type: 'doughnut',
+  data: {
+      labels: ['Assists', 'Turnovers', 'Steals'],
+      datasets: [{
+          backgroundColor: ['#003f5c', '#bc5090', '#ffa600'],
+          borderColor: 'rgb(255, 50,  200)',
+          data: doughnutStats['year_2019'][0]
+      },
+    ]
+  },
+});
+
+var doughnut2018 = document.getElementById('doughtnutChart2018').getContext('2d');
+var chart = new Chart(doughnut2018, {
+  type: 'doughnut',
+  data: {
+      labels: ['Assists', 'Turnovers', 'Steals'],
+      datasets: [{
+          backgroundColor: ['#003f5c', '#bc5090', '#ffa600'],
+          borderColor: 'rgb(255, 50,  200)',
+          data: doughnutStats['year_2018'][0]
+      },
+    ]
+  },
+});
+
+var doughnut2017 = document.getElementById('doughtnutChart2017').getContext('2d');
+var chart = new Chart(doughnut2017, {
+  type: 'doughnut',
+  data: {
+      labels: ['Assists', 'Turnovers', 'Steals'],
+      datasets: [{
+          backgroundColor: ['#003f5c', '#bc5090', '#ffa600'],
+          borderColor: 'rgb(255, 50,  200)',
+          data: doughnutStats['year_2017'][0]
+      },
+    ]
+  },
+});
 </script>
 </html>

@@ -65,14 +65,14 @@ The data will be used to make a website to compare players stats over the years.
     * [X] Utilisation de Player
   * [X] Checker les header content type etc.  
 * Display les résultats du formulaire en chart
-  * Changer les couleurset styles des charts
+  * [X] Changer les couleurset styles des charts
   * changer les labels des années
   * [X] Faire un bouton retour vers la recherche
-  * Display d'autres stats en chart
+  * [X] Display d'autres stats en chart
   * display les autres stats en tableau
   * Ajout team et age
   * Ajout explication de stats  
-  * Un doughnt année en cours sur steal/tov/ast et 4 plus petit sur les années précédentes
+  * [X] Un doughnt année en cours sur steal/tov/ast et 4 plus petit sur les années précédentes
 * Checker ob_start
 * Ajout try/catch et exception pour les requêtes
 * Front / CSS 
