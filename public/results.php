@@ -1,6 +1,5 @@
 <?php session_start();
 require_once '/home/lauric/Bureau/dev/nba_scrape/vendor/autoload.php';
-dump($_SESSION['stats']);
 ?>
 
 <!DOCTYPE html>
@@ -10,21 +9,28 @@ dump($_SESSION['stats']);
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@200;400;600&display=swap" rel="stylesheet"> 
+  <link rel="stylesheet" href="public/style.css">
   <title>Document</title>
 </head>
 <body>
-  <a href="/">Retour à la recherche</a>
-  <h1><?= $_SESSION['name']; ?></h1>
-  <p><?= $_SESSION['stats']['year_2021']['age']; ?> ans</p>
-  <p>Team</p>
+  <a href="/" class="button">Retour à la recherche</a>
+  <div class="container">
+    <h1><?= $_SESSION['name']; ?></h1>
+    <p><?= $_SESSION['stats']['year_2021']['age']; ?> ans</p>
+    <p>Team</p>
 
-  <canvas id="lineChart"></canvas>
-  <canvas id="barChart"></canvas>
-  <canvas id="doughtnutChart2021"></canvas>
-  <canvas id="doughtnutChart2020"></canvas>
-  <canvas id="doughtnutChart2019"></canvas>
-  <canvas id="doughtnutChart2018"></canvas>
-  <canvas id="doughtnutChart2017"></canvas>
+    <canvas id="lineChart"></canvas>
+    <canvas id="barChart"></canvas>
+
+      <canvas id="doughtnutChart2021"></canvas>
+      <canvas id="doughtnutChart2020"></canvas>
+      <canvas id="doughtnutChart2019"></canvas>
+      <canvas id="doughtnutChart2018"></canvas>
+      <canvas id="doughtnutChart2017"></canvas>
+
+ </div>
 
 </body>
 
@@ -69,22 +75,19 @@ dump($_SESSION['stats']);
             label: 'points',
             borderColor: '#5A9A5F',
             data: points.reverse(),
-            backgroundColor: '#5A9A5F',
-            fill: false,
+            backgroundColor: 'rgba(90, 154, 95, .2)',
         },
         {
           label: 'assists',
           borderColor: '#003f5c',
           data: assists.reverse(),
-          backgroundColor: '#003f5c',
-          fill: false,
+          backgroundColor: 'rgba(0, 63, 92, .2)',
         },
         {
           label: 'rebounds',
           borderColor: '#ff7c43',
           data: rebounds.reverse(),
-          backgroundColor: '#ff7c43',
-          fill: false,
+          backgroundColor: 'rgba(255, 124, 67, .2)',
         }
       ]
     },
@@ -97,18 +100,18 @@ var chart = new Chart(ctx, {
       labels: labels.reverse(),
       datasets: [{
           label: '2 points %',
-          backgroundColor: '#ec4646',
+          backgroundColor: 'rgba(236, 70, 70, .4)',
           data: twoPoints.reverse()
       },
       {
         label: '3 points %', 
         data: threePoints.reverse(), 
-        backgroundColor: '#FDE74C',
+        backgroundColor: 'rgba(253, 231, 76, .4)',
       },
       {
         label: 'Free throws %',
         data: freeThrows.reverse(),
-        backgroundColor: '#51c2d5',
+        backgroundColor: 'rgba(81, 194, 213, .4)',
       }
     ]
   },
