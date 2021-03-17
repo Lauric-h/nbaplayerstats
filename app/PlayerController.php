@@ -7,7 +7,7 @@ session_start();
 // header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
 // header("Content-Type: application/json; charset=UTF-8");
 
-require_once '/home/lauric/Bureau/dev/nba_scrape/vendor/autoload.php';
+require_once 'vendor/autoload.php';
 require 'helpers.php';
 use PDO;
 use App\Config;

@@ -1,5 +1,5 @@
 <?php session_start();
-require_once '/home/lauric/Bureau/dev/nba_scrape/vendor/autoload.php';
+require_once 'vendor/autoload.php';
 ?>
 
 <!DOCTYPE html>
@@ -11,25 +11,29 @@ require_once '/home/lauric/Bureau/dev/nba_scrape/vendor/autoload.php';
   <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@200;400;600&display=swap" rel="stylesheet"> 
+  <link href="https://fonts.googleapis.com/css2?family=Wallpoet&display=swap" rel="stylesheet"> 
   <link rel="stylesheet" href="public/style.css">
   <title>Document</title>
 </head>
 <body>
-  <a href="/" class="button">Retour à la recherche</a>
-  <div class="container">
+  <div class="header">
+    <a href="/" class="button">Retour à la recherche</a>
     <h1><?= $_SESSION['name']; ?></h1>
-    <p><?= $_SESSION['stats']['year_2021']['age']; ?> ans</p>
-    <p>Team</p>
+    <p class="info"><span class="accent"><?= $_SESSION['stats']['year_2021']['age']; ?></span> ans</p>
+    <p class="info"><span class="accent"><?= $_SESSION['stats']['year_2021']['team']; ?></span> </p>
+  </div>
 
+  <div class="container">
     <canvas id="lineChart"></canvas>
     <canvas id="barChart"></canvas>
-
-      <canvas id="doughtnutChart2021"></canvas>
-      <canvas id="doughtnutChart2020"></canvas>
-      <canvas id="doughtnutChart2019"></canvas>
-      <canvas id="doughtnutChart2018"></canvas>
-      <canvas id="doughtnutChart2017"></canvas>
-
+    <h2>Différences passes / perte de balle / interceptions</h2>
+    <canvas id="doughtnutChart2021"></canvas>
+    <div class="grid">
+      <div class="grid-container"><canvas id="doughtnutChart2020"></canvas></div>
+      <div class="grid-container"><canvas id="doughtnutChart2019"></canvas></div>
+      <div class="grid-container"><canvas id="doughtnutChart2018"></canvas></div>
+      <div class="grid-container"><canvas id="doughtnutChart2017"></canvas></div>
+    </div>
  </div>
 
 </body>
@@ -47,8 +51,6 @@ require_once '/home/lauric/Bureau/dev/nba_scrape/vendor/autoload.php';
   const threePoints = [];
   const twoPoints = [];
   const freeThrows = [];
-
-  console.log(labels);
 
   let doughnutStats = {};
 
@@ -91,6 +93,12 @@ require_once '/home/lauric/Bureau/dev/nba_scrape/vendor/autoload.php';
         }
       ]
     },
+    options: {
+      title: {
+        display: true,
+        text: 'Points / Passes / Rebonds'
+      }
+    }
 });
 
 var ctx = document.getElementById('barChart').getContext('2d');
@@ -116,14 +124,18 @@ var chart = new Chart(ctx, {
     ]
   },
   options: {
-        scales: {
-            yAxes: [{
-                ticks: {
-                    beginAtZero: true
-                }
-            }]
-        }
+    scales: {
+        yAxes: [{
+            ticks: {
+                beginAtZero: true
+            }
+        }]
+    },
+    title: {
+      display: true,
+      text: 'Pourcentages au tir'
     }
+  }
 });
 
 var doughnut2021 = document.getElementById('doughtnutChart2021').getContext('2d');
@@ -138,6 +150,12 @@ var chart = new Chart(doughnut2021, {
       },
     ]
   },
+  options: {
+      title: {
+        display: true,
+        text: 'Saison 2020-2021'
+      }
+    }
 });
 
 var doughnut2020 = document.getElementById('doughtnutChart2020').getContext('2d');
@@ -152,6 +170,12 @@ var chart = new Chart(doughnut2020, {
       },
     ]
   },
+  options: {
+      title: {
+        display: true,
+        text: 'Saison 2019-2020'
+      }
+    }
 });
 
 var doughnut2019 = document.getElementById('doughtnutChart2019').getContext('2d');
@@ -166,6 +190,12 @@ var chart = new Chart(doughnut2019, {
       },
     ]
   },
+  options: {
+      title: {
+        display: true,
+        text: 'Saison 2018-2019'
+      }
+    }
 });
 
 var doughnut2018 = document.getElementById('doughtnutChart2018').getContext('2d');
@@ -180,6 +210,12 @@ var chart = new Chart(doughnut2018, {
       },
     ]
   },
+  options: {
+      title: {
+        display: true,
+        text: 'Saison 2017-2018'
+      }
+    }
 });
 
 var doughnut2017 = document.getElementById('doughtnutChart2017').getContext('2d');
@@ -194,6 +230,12 @@ var chart = new Chart(doughnut2017, {
       },
     ]
   },
+  options: {
+      title: {
+        display: true,
+        text: 'Saison 2016-2017'
+      }
+    }
 });
 </script>
 </html>

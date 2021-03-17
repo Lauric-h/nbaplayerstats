@@ -1,6 +1,6 @@
 <?php
 namespace App;
-require_once '/home/lauric/Bureau/dev/nba_scrape/vendor/autoload.php';
+require_once 'vendor/autoload.php';
 use PDO;
 use PDOException;
 
@@ -11,7 +11,7 @@ Class Config {
     /**
      * path to DB
      */
-    const SQL_PATH = '/home/lauric/Bureau/dev/nba_scrape/db/data.db';
+    const SQL_PATH = 'db/data.db';
 
     /**
      * PDO instance
