@@ -12,32 +12,35 @@ require_once 'vendor/autoload.php';
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@200;400;600&display=swap" rel="stylesheet"> 
   <link href="https://fonts.googleapis.com/css2?family=Wallpoet&display=swap" rel="stylesheet"> 
+  <script src="https://kit.fontawesome.com/264c9e1633.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="public/style.css">
   <title>Document</title>
 </head>
 <body>
-  <div class="header">
-    <a href="/" class="button">Retour à la recherche</a>
-    <h1><?= $_SESSION['name']; ?></h1>
-    <p class="info"><span class="accent"><?= $_SESSION['stats']['year_2021']['age']; ?></span> ans</p>
-    <p class="info"><span class="accent"><?= $_SESSION['stats']['year_2021']['team']; ?></span> </p>
+  <div class="wrapper">
+  <a href="/" class="button">Retour à la recherche</a>
+    <div class="header">
+      <h1><?= $_SESSION['name']; ?></h1>
+      <p class="info" id="age"><span class="accent"><?= $_SESSION['stats']['year_2021']['age']; ?></span> ans</p>
+      <p class="info" id="team"><span class="accent"><?= $_SESSION['stats']['year_2021']['team']; ?></span> </p>
+    </div>
   </div>
 
   <div class="container">
-    <canvas id="lineChart"></canvas>
-    <canvas id="barChart"></canvas>
+    <div class="card"><canvas id="lineChart"></canvas></div>
+    <div class="card"><canvas id="barChart"></canvas></div>
     <h2>Différences passes / perte de balle / interceptions</h2>
-    <canvas id="doughtnutChart2021"></canvas>
+    <div class="card"><canvas id="doughtnutChart2021"></canvas></div>
     <div class="grid">
-      <div class="grid-container"><canvas id="doughtnutChart2020"></canvas></div>
-      <div class="grid-container"><canvas id="doughtnutChart2019"></canvas></div>
-      <div class="grid-container"><canvas id="doughtnutChart2018"></canvas></div>
-      <div class="grid-container"><canvas id="doughtnutChart2017"></canvas></div>
+      <div class="grid-container card"><canvas id="doughtnutChart2020"></canvas></div>
+      <div class="grid-container card"><canvas id="doughtnutChart2019"></canvas></div>
+      <div class="grid-container card"><canvas id="doughtnutChart2018"></canvas></div>
+      <div class="grid-container card"><canvas id="doughtnutChart2017"></canvas></div>
     </div>
  </div>
+ <footer>Made with <i class="fas fa-heart"></i> by Lauric</footer>
 
 </body>
-
 <script>
   // get data from PHP sessions
   const player = '<?= $_SESSION['name'] ?>';
@@ -96,7 +99,13 @@ require_once 'vendor/autoload.php';
     options: {
       title: {
         display: true,
-        text: 'Points / Passes / Rebonds'
+        text: 'Points / Passes / Rebonds',
+        fontColor: 'white'
+      },
+      legend: {
+        labels: {
+          fontColor: 'white'
+        }
       }
     }
 });
@@ -108,33 +117,43 @@ var chart = new Chart(ctx, {
       labels: labels.reverse(),
       datasets: [{
           label: '2 points %',
-          backgroundColor: 'rgba(236, 70, 70, .4)',
+          backgroundColor: 'rgba(236, 70, 70, .8)',
           data: twoPoints.reverse()
       },
       {
         label: '3 points %', 
         data: threePoints.reverse(), 
-        backgroundColor: 'rgba(253, 231, 76, .4)',
+        backgroundColor: 'rgba(253, 231, 76, .8)',
       },
       {
         label: 'Free throws %',
         data: freeThrows.reverse(),
-        backgroundColor: 'rgba(81, 194, 213, .4)',
+        backgroundColor: 'rgba(81, 194, 213, .8)',
       }
     ]
   },
   options: {
     scales: {
-        yAxes: [{
-            ticks: {
-                beginAtZero: true
-            }
-        }]
+      yAxes: [{
+          ticks: {
+              beginAtZero: true,
+          }
+      }],
+      scaleLabel: {
+        display: true,
+        fontColor: '#fff'
+      }
     },
     title: {
       display: true,
-      text: 'Pourcentages au tir'
-    }
+      text: 'Pourcentages au tir',
+      fontColor: 'white'
+    },
+    legend: {
+      labels: {
+        fontColor: 'white'
+      }
+    },
   }
 });
 
@@ -153,7 +172,13 @@ var chart = new Chart(doughnut2021, {
   options: {
       title: {
         display: true,
-        text: 'Saison 2020-2021'
+        text: 'Saison 2020-2021',
+        fontColor: 'white'
+      },
+      legend: {
+        labels: {
+          fontColor: 'white'
+        }
       }
     }
 });
@@ -173,7 +198,13 @@ var chart = new Chart(doughnut2020, {
   options: {
       title: {
         display: true,
-        text: 'Saison 2019-2020'
+        text: 'Saison 2019-2020',
+        fontColor: 'white',
+      },
+      legend: {
+        labels: {
+          fontColor: 'white'
+        }
       }
     }
 });
@@ -193,7 +224,13 @@ var chart = new Chart(doughnut2019, {
   options: {
       title: {
         display: true,
-        text: 'Saison 2018-2019'
+        text: 'Saison 2018-2019',
+        fontColor: 'white'
+      },
+      legend: {
+        labels: {
+          fontColor: 'white'
+        }
       }
     }
 });
@@ -213,7 +250,13 @@ var chart = new Chart(doughnut2018, {
   options: {
       title: {
         display: true,
-        text: 'Saison 2017-2018'
+        text: 'Saison 2017-2018',
+        fontColor: 'white'
+      },
+      legend: {
+        labels: {
+          fontColor: 'white'
+        }
       }
     }
 });
@@ -233,7 +276,13 @@ var chart = new Chart(doughnut2017, {
   options: {
       title: {
         display: true,
-        text: 'Saison 2016-2017'
+        text: 'Saison 2016-2017',
+        fontColor: 'white'
+      },
+      legend: {
+        labels: {
+          fontColor: 'white'
+        }
       }
     }
 });

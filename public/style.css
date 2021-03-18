@@ -6,6 +6,8 @@
 
 body {
   margin: 0;
+  background: hsl(235, 21%, 11%);
+  color: hsl(234, 39%, 85%);
   font-family: 'Raleway', sans-serif;
 }
 
@@ -16,20 +18,46 @@ p {
   padding: 0;
 }
 
+h1 {
+  font-weight: 200;
+  font-size: 3rem;
+  letter-spacing: 3px;
+}
+
+h2 {
+  text-align: center;
+  font-weight: 200;
+  font-size: 1.325rem;
+}
+
 a {
   text-decoration: none;
 }
 
+.wrapper {
+  width: 100%;
+  background: white;
+  padding: 1.5em;
+}
+
+.header {
+  width: 80%;
+  margin: 1.5em auto;
+  display: grid;
+  grid-gap: .75em;
+  justify-content: center;
+  text-align: center;
+}
+
 .container {
+  width: 80%;
+  margin: 1.5em auto;
+  position: relative;
   display: grid;
   grid-gap: 1.5em;
 }
 
-.header {
-  display: grid;
-  grid-gap: .75em;
-  justify-content: center;
-}
+
 
 .accent {
   font-family: 'Wallpoet', cursive;
@@ -39,45 +67,74 @@ a {
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  grid-row-gap: 2em;
+  grid-gap: 2em;
+}
+
+.card {
+  border: 1px solid black;
+  box-shadow: 0 0 10px 5px rgba(0, 0, 0, .3);
+  border-radius: 5px;
+  padding: 1em;
+  background: hsl(235, 24%, 19%);
 }
 
 
 
 /* button */
 .button {
-  margin-top: 2em;
   width: 100%;
   background: black;
   color: white;
   padding: 1em .75em;
   cursor: pointer;
   text-align: center;
+  ;
 }
 
-
+footer {
+  padding: 1em;
+  text-align: center;
+  letter-spacing: 5px;;
+}
 
 /* ====================
       media queries
 ==================== */
 
 @media (min-width: 650px) {
-  .container {
-    margin: 0 auto;
-    width: 80%;
-    position: relative;
-  }
-
   .grid {
     grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
   }
-
 }
 
 @media (min-width: 950px) {
-  .container {
-    margin: 0 auto;
+  .container,
+  .header {
     width: 60%;
-    position: relative;
+  }
+
+  .container {
+    grid-gap: 2em;
+  }
+
+  .header {
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+  }
+  .header a {
+    grid-column: 1 / 2;
+    width: 80%;
+  }
+  .header h1 {grid-column: 2 / 3;}
+  #age { 
+    grid-column: 1 / 2;
+    justify-self: left;
+  }
+  #team { 
+    grid-column: 3 / -1;
+    justify-self: right;
+  }
+  .button {
+    align-self: start;
   }
 }
