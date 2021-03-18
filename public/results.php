@@ -13,6 +13,8 @@ require_once 'vendor/autoload.php';
   <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@200;400;600&display=swap" rel="stylesheet"> 
   <link href="https://fonts.googleapis.com/css2?family=Wallpoet&display=swap" rel="stylesheet"> 
   <script src="https://kit.fontawesome.com/264c9e1633.js" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/scrollreveal@4.0.0/dist/scrollreveal.min.js"></script>
+  <script src="/node_modules/chart.js/dist/Chart.js"></script>
   <link rel="stylesheet" href="public/style.css">
   <title>Document</title>
 </head>
@@ -27,22 +29,22 @@ require_once 'vendor/autoload.php';
   </div>
 
   <div class="container">
-    <div class="card"><canvas id="lineChart"></canvas></div>
-    <div class="card"><canvas id="barChart"></canvas></div>
-    <h2>Différences passes / perte de balle / interceptions</h2>
-    <div class="card"><canvas id="doughtnutChart2021"></canvas></div>
-    <div class="grid">
-      <div class="grid-container card"><canvas id="doughtnutChart2020"></canvas></div>
-      <div class="grid-container card"><canvas id="doughtnutChart2019"></canvas></div>
-      <div class="grid-container card"><canvas id="doughtnutChart2018"></canvas></div>
-      <div class="grid-container card"><canvas id="doughtnutChart2017"></canvas></div>
+    <div class="card reveal"><canvas id="lineChart"></canvas></div>
+    <div class="card reveal"><canvas id="barChart"></canvas></div>
+    <h2 class="reveal">Différences passes / perte de balle / interceptions</h2>
+    <div class="card reveal"><canvas id="doughtnutChart2021"></canvas></div>
+    <div class="grid reveal">
+      <div class="grid-container card reveal"><canvas id="doughtnutChart2020"></canvas></div>
+      <div class="grid-container card reveal"><canvas id="doughtnutChart2019"></canvas></div>
+      <div class="grid-container card reveal"><canvas id="doughtnutChart2018"></canvas></div>
+      <div class="grid-container card reveal"><canvas id="doughtnutChart2017"></canvas></div>
     </div>
  </div>
  <footer>Made with <i class="fas fa-heart"></i> by Lauric</footer>
 
 </body>
-<script src="/node_modules/chart.js/dist/Chart.js"></script>
 <script>
+    ScrollReveal({ reset: true }).reveal('.reveal', { delay: 200 });
   // charts global configuration
   Chart.defaults.global.defaultFontColor = 'white';
 
