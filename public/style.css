@@ -36,13 +36,18 @@ a {
 
 .wrapper {
   width: 100%;
-  background: white;
-  padding: 1.5em;
+  background:linear-gradient(90deg, rgba(37,39,60,.4) 0%, rgba(0,212,255,.4) 100%), url("nick-jio-57rD2oDZquc-unsplash\(1\).jpg");
+  background-size: cover;
+  background-position: 20% 65%;
+  background-repeat: no-repeat;
+  padding: 2em;
+  text-align: center;
 }
 
 .header {
   width: 80%;
   margin: 1.5em auto;
+  color: white;
   display: grid;
   grid-gap: .75em;
   justify-content: center;
@@ -56,8 +61,6 @@ a {
   display: grid;
   grid-gap: 1.5em;
 }
-
-
 
 .accent {
   font-family: 'Wallpoet', cursive;
@@ -75,20 +78,25 @@ a {
   box-shadow: 0 0 10px 5px rgba(0, 0, 0, .3);
   border-radius: 5px;
   padding: 1em;
-  background: hsl(235, 24%, 19%);
+  background: #25273c;
 }
-
-
 
 /* button */
 .button {
-  width: 100%;
-  background: black;
-  color: white;
+  border: 2px solid hsl(234, 39%, 85%);
+  border-radius: 50px;
+  color: hsl(234, 39%, 85%);
   padding: 1em .75em;
   cursor: pointer;
   text-align: center;
-  ;
+  font-weight: 600;
+  transition: all .5s ease;
+}
+
+.button:active,
+.button:hover {
+  background: hsl(234, 39%, 85%);
+  color: #25273c;
 }
 
 footer {
@@ -108,6 +116,10 @@ footer {
 }
 
 @media (min-width: 950px) {
+  .wrapper {
+    text-align: left;
+  }
+
   .container,
   .header {
     width: 60%;

@@ -41,12 +41,20 @@ require_once 'vendor/autoload.php';
  <footer>Made with <i class="fas fa-heart"></i> by Lauric</footer>
 
 </body>
+<script src="/node_modules/chart.js/dist/Chart.js"></script>
 <script>
+  // charts global configuration
+  Chart.defaults.global.defaultFontColor = 'white';
+
   // get data from PHP sessions
   const player = '<?= $_SESSION['name'] ?>';
   const stats = <?= json_encode($_SESSION['stats']); ?>;
   const labels = Object.keys(stats);
-
+  const years = [];
+  for (let i = 0; i < labels.length; i++) {
+    years.push((labels[i].replace('year_', '')));
+  }
+  
   // assign and populate variables for chart data
   const points = [];
   const assists = [];
@@ -75,24 +83,24 @@ require_once 'vendor/autoload.php';
   var chart = new Chart(ctx, {
     type: 'line',
     data: {
-        labels: labels,
+        labels: years.reverse(),
         datasets: [{
             label: 'points',
-            borderColor: '#5A9A5F',
+            borderColor: '#C2D076',
             data: points.reverse(),
-            backgroundColor: 'rgba(90, 154, 95, .2)',
+            backgroundColor: 'rgba(194, 208, 118, .2)',
         },
         {
           label: 'assists',
-          borderColor: '#003f5c',
+          borderColor: '#F4796B',
           data: assists.reverse(),
-          backgroundColor: 'rgba(0, 63, 92, .2)',
+          backgroundColor: 'rgba(244, 121, 107, .2)',
         },
         {
           label: 'rebounds',
-          borderColor: '#ff7c43',
+          borderColor: '#CDF7F6',
           data: rebounds.reverse(),
-          backgroundColor: 'rgba(255, 124, 67, .2)',
+          backgroundColor: 'rgba(205, 247, 246, .2)',
         }
       ]
     },
@@ -100,21 +108,22 @@ require_once 'vendor/autoload.php';
       title: {
         display: true,
         text: 'Points / Passes / Rebonds',
-        fontColor: 'white'
       },
-      legend: {
-        labels: {
-          fontColor: 'white'
-        }
-      }
+      scales: {
+      yAxes: [{
+          ticks: {
+              beginAtZero: true,
+          }
+      }],
     }
+  }
 });
 
 var ctx = document.getElementById('barChart').getContext('2d');
 var chart = new Chart(ctx, {
   type: 'bar',
   data: {
-      labels: labels.reverse(),
+      labels: years,
       datasets: [{
           label: '2 points %',
           backgroundColor: 'rgba(236, 70, 70, .8)',
@@ -141,18 +150,11 @@ var chart = new Chart(ctx, {
       }],
       scaleLabel: {
         display: true,
-        fontColor: '#fff'
       }
     },
     title: {
       display: true,
       text: 'Pourcentages au tir',
-      fontColor: 'white'
-    },
-    legend: {
-      labels: {
-        fontColor: 'white'
-      }
     },
   }
 });
@@ -173,13 +175,7 @@ var chart = new Chart(doughnut2021, {
       title: {
         display: true,
         text: 'Saison 2020-2021',
-        fontColor: 'white'
       },
-      legend: {
-        labels: {
-          fontColor: 'white'
-        }
-      }
     }
 });
 
@@ -199,13 +195,7 @@ var chart = new Chart(doughnut2020, {
       title: {
         display: true,
         text: 'Saison 2019-2020',
-        fontColor: 'white',
       },
-      legend: {
-        labels: {
-          fontColor: 'white'
-        }
-      }
     }
 });
 
@@ -225,13 +215,7 @@ var chart = new Chart(doughnut2019, {
       title: {
         display: true,
         text: 'Saison 2018-2019',
-        fontColor: 'white'
       },
-      legend: {
-        labels: {
-          fontColor: 'white'
-        }
-      }
     }
 });
 
@@ -251,13 +235,7 @@ var chart = new Chart(doughnut2018, {
       title: {
         display: true,
         text: 'Saison 2017-2018',
-        fontColor: 'white'
       },
-      legend: {
-        labels: {
-          fontColor: 'white'
-        }
-      }
     }
 });
 
@@ -277,13 +255,7 @@ var chart = new Chart(doughnut2017, {
       title: {
         display: true,
         text: 'Saison 2016-2017',
-        fontColor: 'white'
       },
-      legend: {
-        labels: {
-          fontColor: 'white'
-        }
-      }
     }
 });
 </script>
