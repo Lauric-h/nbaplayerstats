@@ -8,7 +8,6 @@ require_once 'vendor/autoload.php';
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@200;400;600&display=swap" rel="stylesheet"> 
   <link href="https://fonts.googleapis.com/css2?family=Wallpoet&display=swap" rel="stylesheet"> 
@@ -44,7 +43,9 @@ require_once 'vendor/autoload.php';
 
 </body>
 <script>
-    ScrollReveal({ reset: true }).reveal('.reveal', { delay: 200 });
+    ScrollReveal({ reset: true }).reveal('.reveal', { distance: '200px', delay: 200, origin: 'bottom' });
+
+
   // charts global configuration
   Chart.defaults.global.defaultFontColor = 'white';
 
@@ -88,21 +89,18 @@ require_once 'vendor/autoload.php';
         labels: years.reverse(),
         datasets: [{
             label: 'points',
-            borderColor: '#C2D076',
+            borderColor: 'rgb(156,252,151)',
             data: points.reverse(),
-            backgroundColor: 'rgba(194, 208, 118, .2)',
         },
         {
           label: 'assists',
-          borderColor: '#F4796B',
+          borderColor: '#FFCAD4',
           data: assists.reverse(),
-          backgroundColor: 'rgba(244, 121, 107, .2)',
         },
         {
           label: 'rebounds',
           borderColor: '#CDF7F6',
           data: rebounds.reverse(),
-          backgroundColor: 'rgba(205, 247, 246, .2)',
         }
       ]
     },
@@ -167,8 +165,8 @@ var chart = new Chart(doughnut2021, {
   data: {
       labels: ['Assists', 'Turnovers', 'Steals'],
       datasets: [{
-          backgroundColor: ['#003f5c', '#bc5090', '#ffa600'],
-          borderColor: 'rgb(255, 50,  200)',
+          backgroundColor: ['#BDD358', '#bc5090', '#ffa600'],
+          borderColor: ['#BDD358', '#bc5090', '#ffa600'],
           data: doughnutStats['year_2021'][0]
       },
     ]
@@ -187,8 +185,8 @@ var chart = new Chart(doughnut2020, {
   data: {
       labels: ['Assists', 'Turnovers', 'Steals'],
       datasets: [{
-        backgroundColor: ['#003f5c', '#bc5090', '#ffa600'],
-        borderColor: 'rgb(255, 50,  200)',
+        backgroundColor: ['#BDD358', '#bc5090', '#ffa600'],
+        borderColor: ['#BDD358', '#bc5090', '#ffa600'],
         data: doughnutStats['year_2020'][0]
       },
     ]
@@ -207,9 +205,9 @@ var chart = new Chart(doughnut2019, {
   data: {
       labels: ['Assists', 'Turnovers', 'Steals'],
       datasets: [{
-          backgroundColor: ['#003f5c', '#bc5090', '#ffa600'],
-          borderColor: 'rgb(255, 50,  200)',
-          data: doughnutStats['year_2019'][0]
+        backgroundColor: ['#BDD358', '#bc5090', '#ffa600'],
+        borderColor: ['#BDD358', '#bc5090', '#ffa600'],
+        data: doughnutStats['year_2019'][0]
       },
     ]
   },
@@ -227,9 +225,9 @@ var chart = new Chart(doughnut2018, {
   data: {
       labels: ['Assists', 'Turnovers', 'Steals'],
       datasets: [{
-          backgroundColor: ['#003f5c', '#bc5090', '#ffa600'],
-          borderColor: 'rgb(255, 50,  200)',
-          data: doughnutStats['year_2018'][0]
+        backgroundColor: ['#BDD358', '#bc5090', '#ffa600'],
+        borderColor: ['#BDD358', '#bc5090', '#ffa600'],
+        data: doughnutStats['year_2018'][0]
       },
     ]
   },
@@ -247,9 +245,9 @@ var chart = new Chart(doughnut2017, {
   data: {
       labels: ['Assists', 'Turnovers', 'Steals'],
       datasets: [{
-          backgroundColor: ['#003f5c', '#bc5090', '#ffa600'],
-          borderColor: 'rgb(255, 50,  200)',
-          data: doughnutStats['year_2017'][0]
+        backgroundColor: ['#BDD358', '#bc5090', '#ffa600'],
+        borderColor: ['#BDD358', '#bc5090', '#ffa600'],
+        data: doughnutStats['year_2017'][0]
       },
     ]
   },

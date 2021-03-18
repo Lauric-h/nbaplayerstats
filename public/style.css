@@ -38,9 +38,35 @@ a {
   text-decoration: none;
 }
 
+main {
+  width: 100vw;
+  height: 100vh;
+  background:linear-gradient(90deg, rgba(37,39,60,.4) 0%, rgba(0,212,255,.4) 100%), url("basketball_court.jpg");
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+form {
+  width: 50%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+input {
+  font-size: 1.5rem;
+  padding: .75em;
+  margin-right: 2em;
+  box-shadow: 0 0 15px 0 rgba(0, 0, 0, .5);
+}
+
 .wrapper {
   width: 100%;
-  background:linear-gradient(90deg, rgba(37,39,60,.4) 0%, rgba(0,212,255,.4) 100%), url("nick-jio-57rD2oDZquc-unsplash\(1\).jpg");
+  background:linear-gradient(90deg, rgba(37,39,60,.4) 0%, rgba(0,212,255,.4) 100%), url("basketball_court.jpg");
   background-size: cover;
   background-position: 20% 65%;
   background-repeat: no-repeat;
@@ -83,9 +109,11 @@ a {
   border-radius: 5px;
   padding: 1em;
   background: #25273c;
+  background: linear-gradient(90deg, rgba(37,39,60,.4) 0%, rgba(0,212,255,.4) 100%);
 }
 
-/* button */
+/* buttons */
+button,
 .button {
   border: 2px solid hsl(234, 39%, 85%);
   border-radius: 50px;
@@ -95,12 +123,28 @@ a {
   text-align: center;
   font-weight: 600;
   transition: all .5s ease;
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, .3);
 }
 
 .button:active,
 .button:hover {
   background: hsl(234, 39%, 85%);
   color: #25273c;
+}
+
+button {
+  color: #25273c;
+  background: hsl(234, 39%, 85%);
+  border: none;
+  font-size: 1.25rem;
+  
+}
+
+button:active,
+button:hover {
+  background: #25273c;
+  color: hsl(234, 39%, 85%);
+  transform: scale(1.2);
 }
 
 footer {

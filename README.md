@@ -69,15 +69,23 @@ The data will be used to make a website to compare players stats over the years.
   * changer les labels des années
   * [X] Faire un bouton retour vers la recherche
   * [X] Display d'autres stats en chart
-  * display les autres stats en tableau
-  * Ajout team et age
-  * Ajout explication de stats  
+  * [X] Ajout team et age
   * [X] Un doughnt année en cours sur steal/tov/ast et 4 plus petit sur les années précédentes
-* Checker ob_start
+* Design page de recherche
+  * animation onload
+  * animation sur input
+  * effet input
+* Checker recherche suggestion 
 * Ajout try/catch et exception pour les requêtes
-* Front / CSS 
 * Refactor
+  * Head HTML
+  * CSS
+  * JS
+  * PHP
+  * Dissocier PHP de l'affichage
 * Automatiser la recherche de l'année en cours
+* Ajout lien github/linkedin
+* Ajout phrase nba et basketball reference page results
 
 
 
