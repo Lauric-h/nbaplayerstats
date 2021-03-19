@@ -40,8 +40,8 @@ require_once 'vendor/autoload.php';
     </div>
   </div>
 
- <footer>Made with <i class="fas fa-heart"></i> by Lauric - <a href="https://www.linkedin.com/in/lauric/" target="_blank"><i class="fab fa-linkedin-in"></a></i> <a href="https://github.com/Lauric-h" target="_blank"><i class="fab fa-github"></a></i>
- <div class="terms">
+ <footer class="reveal">Made with <i class="fas fa-heart"></i> by Lauric - <a href="https://www.linkedin.com/in/lauric/" target="_blank"><i class="fab fa-linkedin-in"></a></i> <a href="https://github.com/Lauric-h" target="_blank"><i class="fab fa-github"></a></i>
+  <div class="terms">
     Les statistiques viennent de
     <a href="https://nba.com" target="_blank">la NBA</a> et 
     <a href="https://www.basketball-reference.com/" target="_blank">Basketball Reference</a>

@@ -20,7 +20,8 @@
   <main>
     <form action="<?= htmlspecialchars("/player");?>" method="get" class="reveal">
       <p><?= $error ?></p>
-      <input aria-label="nom du joueur" type="text" name="name" id="name" placeholder="Nom du joueur" required>
+      <input id="search" aria-label="nom du joueur" type="text" name="name" id="name" placeholder="Nom du joueur" required>
+      <div id="nameList"></div>
       <button type="submit">Go ! </button>
     </form>
   </main>
@@ -28,7 +29,60 @@
 <footer>Made with <i class="fas fa-heart"></i> by Lauric - <a href="https://www.linkedin.com/in/lauric/" target="_blank"><i class="fab fa-linkedin-in"></a></i> <a href="https://github.com/Lauric-h" target="_blank"><i class="fab fa-github"></a></i></footer>
 
 <script>
-    ScrollReveal().reveal('.reveal', { distance: '200px', delay: 200, origin: 'bottom' });
+  ScrollReveal().reveal('.reveal', { distance: '200px', delay: 200, origin: 'bottom' });
+
+  //Get Countries From Json File
+  const searchName = async searchBox => {
+  const res = await fetch('db/names.json');
+  const names = await res.json();
+  
+  //Get & Filter Through Entered Data
+  let fits = names.filter(country => {
+    const regex = new RegExp(`^${searchBox}`, 'gi');
+    return country.name.match(regex) || country.abbr.match(regex);
+  });
+  
+  //Clears Data If Search Input Field Is Empty
+  if (searchBox.length === 0) {
+    fits = [];
+    nameList.innerHTML = '';
+  }
+  outputHtml(fits);
+};
+
+// show results in HTML
+const outputHtml = fits => {
+  if (fits.length > 0) {
+    const html = fits
+      .map(
+        fit => `
+     <div class="row">
+     <div class="col s12">
+       <div class="card  grey darken-4 darken-1">
+         <div class="card-content white-text">
+           <h4 class="card-title m1">${fit.name} (${
+          fit.abbr
+        })<span class="blue-text m-4"> ${fit.capital}</span></h4>
+        <div class="card-action">
+        <a>Country Code :</a>
+        <a>${fit.phoneCode}</a>
+      </div>
+         </div>
+       </div>
+     </div>
+   </div>
+     `
+      )
+      .join('');
+
+    document.getElementById('nameList').innerHTML = html;
+  }
+};
+
+document
+  .getElementById('search')
+  .addEventListener('input', () => searchName(search.value));
+
 </script
 
 </body>
