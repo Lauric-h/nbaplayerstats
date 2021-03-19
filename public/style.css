@@ -50,14 +50,27 @@ main {
 }
 
 form {
+  border: 5px solid red;
   width: 50%;
+  height: 50%;
   margin: 0 auto;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
 }
 
+.search-bar {
+  display: grid;
+}
+
+.autocomplete {
+  padding: .75em;
+  background: white;
+  color: black;
+}
+
 input {
+  width: 100%;
   margin-right: 2em;
   padding: .75em;
   border-radius: 5px;
