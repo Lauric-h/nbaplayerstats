@@ -42,7 +42,7 @@ main {
   width: 100vw;
   height: 100vh;
   background:linear-gradient(90deg, rgba(37,39,60,.4) 0%, rgba(0,212,255,.4) 100%), url("basketball_court.jpg");
-  background-position: center;
+  background-position: 30% 90%;
   background-size: cover;
   display: flex;
   justify-content: center;
@@ -58,10 +58,18 @@ form {
 }
 
 input {
-  font-size: 1.5rem;
-  padding: .75em;
   margin-right: 2em;
+  padding: .75em;
+  border-radius: 5px;
   box-shadow: 0 0 15px 0 rgba(0, 0, 0, .5);
+  font-size: 1.5rem;
+  transition: all .3s ease;
+}
+
+input:focus {
+  box-shadow: 0 0 15px 5px rgba(0, 153, 255, 0.315);
+  border: 2px solid rgba(0,212,255,.4);
+  transform: scale(1.05);
 }
 
 .wrapper {
@@ -130,6 +138,7 @@ button,
 .button:hover {
   background: hsl(234, 39%, 85%);
   color: #25273c;
+;
 }
 
 button {
@@ -137,7 +146,6 @@ button {
   background: hsl(234, 39%, 85%);
   border: none;
   font-size: 1.25rem;
-  
 }
 
 button:active,
@@ -151,6 +159,20 @@ footer {
   padding: 1em;
   text-align: center;
   letter-spacing: 5px;;
+}
+
+footer a {
+  color: hsl(234, 39%, 85%);
+}
+
+.terms {
+  margin-top: .75em;
+  font-size: .85rem;
+  letter-spacing: normal;
+}
+
+.terms a {
+  text-decoration: underline;
 }
 
 /* ====================

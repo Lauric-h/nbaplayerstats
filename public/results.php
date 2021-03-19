@@ -15,7 +15,7 @@ require_once 'vendor/autoload.php';
   <script src="https://unpkg.com/scrollreveal@4.0.0/dist/scrollreveal.min.js"></script>
   <script src="/node_modules/chart.js/dist/Chart.js"></script>
   <link rel="stylesheet" href="public/style.css">
-  <title>Document</title>
+  <title>NBA player stats</title>
 </head>
 <body>
   <div class="wrapper">
@@ -23,7 +23,7 @@ require_once 'vendor/autoload.php';
     <div class="header">
       <h1><?= $_SESSION['name']; ?></h1>
       <p class="info" id="age"><span class="accent"><?= $_SESSION['stats']['year_2021']['age']; ?></span> ans</p>
-      <p class="info" id="team"><span class="accent"><?= $_SESSION['stats']['year_2021']['team']; ?></span> </p>
+      <p class="info" id="team"><span class="accent"><?= $_SESSION['stats']['year_2021']['team'] ?? 'Retraité'; ?></span> </p>
     </div>
   </div>
 
@@ -38,8 +38,15 @@ require_once 'vendor/autoload.php';
       <div class="grid-container card reveal"><canvas id="doughtnutChart2018"></canvas></div>
       <div class="grid-container card reveal"><canvas id="doughtnutChart2017"></canvas></div>
     </div>
- </div>
- <footer>Made with <i class="fas fa-heart"></i> by Lauric</footer>
+  </div>
+
+ <footer>Made with <i class="fas fa-heart"></i> by Lauric - <a href="https://www.linkedin.com/in/lauric/" target="_blank"><i class="fab fa-linkedin-in"></a></i> <a href="https://github.com/Lauric-h" target="_blank"><i class="fab fa-github"></a></i>
+ <div class="terms">
+    Les statistiques viennent de
+    <a href="https://nba.com" target="_blank">la NBA</a> et 
+    <a href="https://www.basketball-reference.com/" target="_blank">Basketball Reference</a>
+  </div>
+</footer>
 
 </body>
 <script>

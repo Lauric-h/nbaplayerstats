@@ -10,19 +10,26 @@
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@200;400;600&display=swap" rel="stylesheet"> 
     <link href="https://fonts.googleapis.com/css2?family=Wallpoet&display=swap" rel="stylesheet"> 
     <script src="https://kit.fontawesome.com/264c9e1633.js" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/scrollreveal@4.0.0/dist/scrollreveal.min.js"></script>
     <link rel="stylesheet" href="public/style.css">
-    <title>NBA stats</title>
+    <title>NBA player stats</title>
 </head>
+
 <body>
+
   <main>
-    <form action="<?= htmlspecialchars("/player");?>" method="get">
+    <form action="<?= htmlspecialchars("/player");?>" method="get" class="reveal">
       <p><?= $error ?></p>
       <input aria-label="nom du joueur" type="text" name="name" id="name" placeholder="Nom du joueur" required>
       <button type="submit">Go ! </button>
     </form>
   </main>
-<footer>Made with <i class="fas fa-heart"></i> by Lauric</footer>
+
+<footer>Made with <i class="fas fa-heart"></i> by Lauric - <a href="https://www.linkedin.com/in/lauric/" target="_blank"><i class="fab fa-linkedin-in"></a></i> <a href="https://github.com/Lauric-h" target="_blank"><i class="fab fa-github"></a></i></footer>
+
+<script>
+    ScrollReveal().reveal('.reveal', { distance: '200px', delay: 200, origin: 'bottom' });
+</script
+
 </body>
-
-
 </html>   
