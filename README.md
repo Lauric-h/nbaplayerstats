@@ -75,11 +75,7 @@ The data will be used to make a website to compare players stats over the years.
   * [X] animation onload
   * [X] animation sur input
   * [X] effet input
-* Search autocomplete
-  * Faire JSON des noms
-  * CSS du autocomplete
-  * tester
-* Ajout try/catch et exception pour les requêtes
+* [X] Search autocomplete
 * Refactor
   * Head HTML
   * CSS0

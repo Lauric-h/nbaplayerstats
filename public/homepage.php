@@ -16,15 +16,13 @@
 </head>
 
 <body>
-
   <main>
     <form action="<?= htmlspecialchars("/player");?>" method="get" class="reveal">
-      <p><?= $error ?></p>
       <div class="search-bar">
         <input aria-label="nom du joueur" type="text" name="name" id="name" placeholder="Nom du joueur" required>
-        <div id="nameList"></div>
+        <ul id="nameList"></ul>
+        <button type="submit">Go ! </button>
       </div>
-      <button type="submit">Go ! </button>
     </form>
   </main>
 
@@ -41,9 +39,7 @@
   .then(data => names.push(...data)));
 
   function findMatches(wordToMatch, names) {
-
     return names.filter(names => {
-
       const regex = new RegExp(wordToMatch, 'gi');
       return names.name.match(regex)
     })
@@ -59,10 +55,23 @@
       `;
     }).join('');
     nameList.innerHTML = html;
+
+    // user can click on name 
+    if (nameAhead.length > 0) {
+      nameList.addEventListener('click', (e) => {
+        searchInput.value = e.target.textContent.trim();
+      })
+    }
+
+    // keep list from displaying when input is empty
+    if (searchInput.value === '') {
+      nameList.innerHTML = '';
+    }
   }
 
   const searchInput = document.querySelector('#name');
   const nameList = document.querySelector('#nameList');
+  const nameAhead = nameList.children;
 
   searchInput.addEventListener('change', displayMatches);
   searchInput.addEventListener('keyup', displayMatches);
