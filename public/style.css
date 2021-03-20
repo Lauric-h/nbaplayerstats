@@ -50,7 +50,7 @@ main {
 }
 
 form {
-  border: 5px solid red;
+  /* border: 5px solid red; */
   width: 50%;
   height: 50%;
   margin: 0 auto;
@@ -73,7 +73,7 @@ input {
   width: 100%;
   margin-right: 2em;
   padding: .75em;
-  border-radius: 5px;
+  border-radius: 100px;
   box-shadow: 0 0 15px 0 rgba(0, 0, 0, .5);
   font-size: 1.5rem;
   transition: all .3s ease;
@@ -155,8 +155,8 @@ button,
 }
 
 button {
-  color: #25273c;
-  background: hsl(234, 39%, 85%);
+  color: black;
+  background: #FA8320;
   border: none;
   font-size: 1.25rem;
 }

@@ -21,7 +21,7 @@
     <form action="<?= htmlspecialchars("/player");?>" method="get" class="reveal">
       <p><?= $error ?></p>
       <div class="search-bar">
-        <input id="search" aria-label="nom du joueur" type="text" name="name" id="name" placeholder="Nom du joueur" required>
+        <input aria-label="nom du joueur" type="text" name="name" id="name" placeholder="Nom du joueur" required>
         <div id="nameList"></div>
       </div>
       <button type="submit">Go ! </button>
@@ -33,48 +33,41 @@
 <script>
   ScrollReveal().reveal('.reveal', { distance: '200px', delay: 200, origin: 'bottom' });
 
-  //Get Countries From Json File
-  const searchName = async searchBox => {
-  const res = await fetch('db/names.json');
-  const names = await res.json();
-  
-  //Get & Filter Through Entered Data
-  let fits = names.filter(country => {
-    const regex = new RegExp(`^${searchBox}`, 'gi');
-    return country.name.match(regex) || country.abbr.match(regex);
-  });
-  
-  //Clears Data If Search Input Field Is Empty
-  if (searchBox.length === 0) {
-    fits = [];
-    nameList.innerHTML = '';
+  const endpoint = '/all';
+  const names = [];
+
+  fetch(endpoint)
+  .then(blob => blob.json()
+  .then(data => names.push(...data)));
+
+  function findMatches(wordToMatch, names) {
+
+    return names.filter(names => {
+
+      const regex = new RegExp(wordToMatch, 'gi');
+      return names.name.match(regex)
+    })
   }
-  outputHtml(fits);
-};
 
-// show results in HTML
-const outputHtml = fits => {
-  if (fits.length > 0) {
-    const html = fits
-      .map(
-        fit => `
-     <div class="autocomplete">
-        <p class="autocomplete-item">${fit.name}</p>
-     </div>
-
-     `
-      )
-      .join('');
-
-    document.getElementById('nameList').innerHTML = html;
+  function displayMatches() {
+    const matchArray = findMatches(this.value, names);
+    const html = matchArray.map(names => {
+      return `
+        <li>
+          <span class="nameAhead">${names.name}</span>
+        </li>
+      `;
+    }).join('');
+    nameList.innerHTML = html;
   }
-};
 
-document
-  .getElementById('search')
-  .addEventListener('input', () => searchName(search.value));
+  const searchInput = document.querySelector('#name');
+  const nameList = document.querySelector('#nameList');
 
-</script
+  searchInput.addEventListener('change', displayMatches);
+  searchInput.addEventListener('keyup', displayMatches);
+
+</script>
 
 </body>
 </html>   

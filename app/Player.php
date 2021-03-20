@@ -83,5 +83,15 @@ class Player {
     return $this->years;
   }
 
+  /**
+   * Get all players names
+   *
+   * @return array
+   */
+  public function index(): array {
+    $request = $this->db->query('SELECT DISTINCT name FROM year_2021');
+    $result = $request->fetchAll(PDO::FETCH_ASSOC);  
+    return $result;
+  }
 
 }

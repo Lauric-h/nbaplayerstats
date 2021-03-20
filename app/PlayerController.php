@@ -25,9 +25,7 @@ $db = new Database($conn);
 $player = new Player($conn, $name);
 $stats = $player->show();
 
-
 if ($stats) {
-  // echo json_encode($stats);
   $_SESSION['stats'] = $stats;
   $_SESSION['name'] = $name;
   header('Location:/results');

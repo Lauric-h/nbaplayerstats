@@ -27,3 +27,7 @@ while(($row = fgetcsv($filehandle, 0, ',')) !== false) {
   $db->store($table, $row);
 }
 fclose($filehandle);
+
+
+
+

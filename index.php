@@ -23,6 +23,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     case "/results": 
       include "public/results.php";
       break;
+    case "/all": 
+      include "public/all.php";
+      break;
     default: 
       include 'public/homepage.php';
       break;
