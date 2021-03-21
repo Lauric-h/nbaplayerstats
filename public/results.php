@@ -59,7 +59,7 @@ require_once 'vendor/autoload.php';
 
 <script>
   // Reveal on load 
-  ScrollReveal({ reset: true }).reveal('.reveal', { distance: '200px', delay: 200, origin: 'bottom' });
+  ScrollReveal({ reset: true }).reveal('.reveal', { distance: '200px', delay: 800, origin: 'bottom' });
   
   // charts global configuration
   Chart.defaults.global.defaultFontColor = 'white';
