@@ -18,7 +18,8 @@ require_once 'vendor/autoload.php';
   <!-- style -->
   <link rel="stylesheet" href="public/style.css">
   <!-- chart lib -->
-  <script src="/node_modules/chart.js/dist/Chart.js"></script>
+  <!-- <script src="/node_modules/chart.js/dist/Chart.js"></script> -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
 
   <title>NBA player stats</title>
 </head>

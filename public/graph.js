@@ -1,4 +1,3 @@
-
 // charts global configuration
 Chart.defaults.global.defaultFontColor = 'white';
 
