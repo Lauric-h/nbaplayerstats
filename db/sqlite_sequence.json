@@ -1,0 +1,30 @@
+[
+    {
+        "name": "year",
+        "seq": 1
+    },
+    {
+        "name": "testTable",
+        "seq": 11
+    },
+    {
+        "name": "year_2017",
+        "seq": 1785
+    },
+    {
+        "name": "year_2018",
+        "seq": 1328
+    },
+    {
+        "name": "year_2019",
+        "seq": 1416
+    },
+    {
+        "name": "year_2020",
+        "seq": 1302
+    },
+    {
+        "name": "year_2021",
+        "seq": 1008
+    }
+]
