@@ -31,6 +31,8 @@ The data will be used to make a website to compare players stats over the years.
 * PHP 
 * Goutte
 * SQLite
+* Chart.js
+* Reveal.js
 
 ***
 ## Project Management / To Do :
@@ -64,9 +66,9 @@ The data will be used to make a website to compare players stats over the years.
   * [X] Faire PlayerController
     * [X] Utilisation de Player
   * [X] Checker les header content type etc.  
-* Display les résultats du formulaire en chart
+* [X] Display les résultats du formulaire en chart
   * [X] Changer les couleurset styles des charts
-  * changer les labels des années
+  * [X] changer les labels des années
   * [X] Faire un bouton retour vers la recherche
   * [X] Display d'autres stats en chart
   * [X] Ajout team et age
@@ -76,14 +78,14 @@ The data will be used to make a website to compare players stats over the years.
   * [X] animation sur input
   * [X] effet input
 * [X] Search autocomplete
-* Refactor
-  * Head HTML
-  * CSS0
-  * JS
-    * fichiers scripts
+* [X] Refactor
+  * [X] Head HTML
+  * [X] CSS0
+  * [X] JS
+    * [X] fichiers scripts
     * génération des charts dougnuts
-  * PHP
-  * Dissocier PHP de l'affichage
+  * [X] PHP
+  * [X] css autoprefixer
 * Automatiser la recherche de l'année en cours
 * [X] Ajout lien github/linkedin
 * [X] Ajout phrase nba et basketball reference page results

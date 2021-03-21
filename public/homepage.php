@@ -6,12 +6,16 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@200;400;600&display=swap" rel="stylesheet"> 
-    <link href="https://fonts.googleapis.com/css2?family=Wallpoet&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@200;400;600&family=Wallpoet&display=swap" rel="stylesheet"> 
+    <!-- icons -->
     <script src="https://kit.fontawesome.com/264c9e1633.js" crossorigin="anonymous"></script>
+    <!-- reveal lib -->
     <script src="https://unpkg.com/scrollreveal@4.0.0/dist/scrollreveal.min.js"></script>
+    <!-- style -->
     <link rel="stylesheet" href="public/style.css">
+
     <title>NBA player stats</title>
 </head>
 
@@ -30,53 +34,8 @@
 
 <script>
   ScrollReveal().reveal('.reveal', { distance: '200px', delay: 200, origin: 'bottom' });
-
-  const endpoint = '/all';
-  const names = [];
-
-  fetch(endpoint)
-  .then(blob => blob.json()
-  .then(data => names.push(...data)));
-
-  function findMatches(wordToMatch, names) {
-    return names.filter(names => {
-      const regex = new RegExp(wordToMatch, 'gi');
-      return names.name.match(regex)
-    })
-  }
-
-  function displayMatches() {
-    const matchArray = findMatches(this.value, names);
-    const html = matchArray.map(names => {
-      return `
-        <li>
-          <span class="nameAhead">${names.name}</span>
-        </li>
-      `;
-    }).join('');
-    nameList.innerHTML = html;
-
-    // user can click on name 
-    if (nameAhead.length > 0) {
-      nameList.addEventListener('click', (e) => {
-        searchInput.value = e.target.textContent.trim();
-      })
-    }
-
-    // keep list from displaying when input is empty
-    if (searchInput.value === '') {
-      nameList.innerHTML = '';
-    }
-  }
-
-  const searchInput = document.querySelector('#name');
-  const nameList = document.querySelector('#nameList');
-  const nameAhead = nameList.children;
-
-  searchInput.addEventListener('change', displayMatches);
-  searchInput.addEventListener('keyup', displayMatches);
-
 </script>
+<script src="public/autocomplete.js"></script>
 
 </body>
 </html>   

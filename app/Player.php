@@ -1,7 +1,5 @@
 <?php
-
 namespace App;
-
 use PDO;
 require_once 'vendor/autoload.php';
 

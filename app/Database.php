@@ -95,14 +95,14 @@ class Database {
     }
 
     /**
-     * Update data for current season
-     * TODO
+     * Update data from updated CSV
+     *
      * @param string $year
      * @param array $column
      * @return void
      */
-    public function update(string $table, array $column): void {
+    public function update(string $year, array $column) {
         $name = $this->cleanData($column[1]);
-        $request = $this->pdo->prepare('UPDATE ' . $table . ' SET age = '. $column[1] . ', position = '. $column[2] . ', a = '. $column[2] );
+        $this->pdo->exec('UPDATE ' . $year .' SET `name` = ' . $name . ',  `position` = ' . $column[2] . ', `age` = ' . $column[3] . ', `team` = ' . $column[4] . ', `games` = ' . $column[5] . ', `games_started` = ' . $column[6] . ', `minutes_per_game` = ' . $column[7] . ', `fg` = ' . $column[8] . ', `fga` = ' . $column[9] . ', `fgp` = ' . $column[10] . ', `three_made` = ' . $column[11] . ', `three_attempt` = ' . $column[12] . ', `three_pct` = ' . $column[13] . ', `two_made` = ' . $column[14] . ', `two_attempt` = ' . $column[15] . ', `two_pct` = ' . $column[16] . ', `efg` = ' . $column[17] . ', `ft` = ' . $column[18] . ', `fta` = ' . $column[19] . ', `ftp` = ' . $column[20] . ', `orb` = ' . $column[21] . ', `drb` = ' . $column[22] . ', `trb` = ' . $column[23] . ', `ast` = ' . $column[24] . ', `stl` = ' . $column[25] . ', `blk` = ' . $column[26] . ', `tov` = ' . $column[27] . ', `pf` = ' . $column[28] . ', `pts` = ' . $column[29]);
     }
-}
+} 

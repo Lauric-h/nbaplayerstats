@@ -1,7 +1,15 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v7.0.29,
+* Autoprefixer: v9.7.6
+* Browsers: last 4 version
+*/
+
 *,
 *::before,
 *::after {
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 html {
@@ -14,6 +22,10 @@ body {
   color: hsl(234, 39%, 85%);
   font-family: 'Raleway', sans-serif;
 }
+
+/* ===============
+    GENERAL
+=============== */ 
 
 h1,
 h2,
@@ -38,137 +50,21 @@ a {
   text-decoration: none;
 }
 
-main {
-  width: 100vw;
-  height: 100vh;
-  background:linear-gradient(90deg, rgba(37,39,60,.4) 0%, rgba(0,212,255,.4) 100%), url("basketball_court.jpg");
-  background-position: 30% 90%;
-  background-size: cover;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-form {
-  width: 80%; 
-  height: 50%;
-  margin: 0 auto;
-}
-
-.search-bar {
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-column-gap: 1.5em;
-}
-
-.autocomplete {
-  padding: .75em;
-  background: white;
-  color: black;
-}
-
-input {
-  margin-right: 2em;
-  padding: .75em;
-  border-radius: 100px;
-  box-shadow: 0 0 15px 0 rgba(0, 0, 0, .5);
-  font-size: 1rem;
-  transition: all .3s ease;
-  outline: 0;
-  width: 100%;
-  position: relative;
-  z-index: 2;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.12), inset 0 0 2px rgba(0, 0, 0, 0.19);
-}
-
-input:focus {
-  box-shadow: 0 0 15px 5px rgba(0, 153, 255, 0.315);
-  border: 2px solid rgba(0,212,255,.4);
-  transform: scale(1.05);
-}
-
-#nameList {
-  width: 90%;
-  justify-self: center;
-  margin: 0;
-  padding: 0;
-  position: relative;
-}
-
-#nameList li {
-  background: white;
-  list-style: none;
-  border-bottom: 1px solid #D8D8D8;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.14);
-  margin: 0;
-  padding: 20px;
-  transition: background 0.2s;
-  display: flex;
-  justify-content: space-between;
-  color: #25273c;
-  cursor: pointer;
-}
-
-.wrapper {
-  width: 100%;
-  background:linear-gradient(90deg, rgba(37,39,60,.4) 0%, rgba(0,212,255,.4) 100%), url("basketball_court.jpg");
-  background-size: cover;
-  background-position: 20% 65%;
-  background-repeat: no-repeat;
-  padding: 2em;
-  text-align: center;
-}
-
-.header {
-  width: 80%;
-  margin: 1.5em auto;
-  color: white;
-  display: grid;
-  grid-gap: .75em;
-  justify-content: center;
-  text-align: center;
-}
-
-.container {
-  width: 75%;
-  margin: 1.5em auto;
-  position: relative;
-  display: grid;
-  grid-gap: 1.5em;
-}
-
-.accent {
-  font-family: 'Wallpoet', cursive;
-  font-size: 2rem;
-}
-
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  grid-gap: 2em;
-}
-
-.card {
-  border: 1px solid black;
-  box-shadow: 0 0 10px 5px rgba(0, 0, 0, .3);
-  border-radius: 5px;
-  padding: 1em;
-  background: #25273c;
-  background: linear-gradient(90deg, rgba(37,39,60,.4) 0%, rgba(0,212,255,.4) 100%);
-}
-
 /* buttons */
 button,
 .button {
+  padding: 1em .75em;
   border: 2px solid hsl(234, 39%, 85%);
   border-radius: 50px;
   color: hsl(234, 39%, 85%);
-  padding: 1em .75em;
-  cursor: pointer;
   text-align: center;
   font-weight: 600;
+  cursor: pointer;
+  -webkit-box-shadow: 0 0 5px 0 rgba(0, 0, 0, .3);
+          box-shadow: 0 0 5px 0 rgba(0, 0, 0, .3);
+  -webkit-transition: all .5s ease;
+  -o-transition: all .5s ease;
   transition: all .5s ease;
-  box-shadow: 0 0 5px 0 rgba(0, 0, 0, .3);
 }
 
 .button:active,
@@ -179,23 +75,28 @@ button,
 
 button {
   width: 80px;
-  color: black;
-  background: #FA8320;
+  margin-bottom: 1.5em;
   border: none;
+  background: #FA8320;
+  color: black;
   font-size: 1.25rem;
   grid-column: 1 / -1;
+  -ms-grid-row: 1;
   grid-row: 1;
-  justify-self: left;
-  margin-bottom: 1.5em;
+  -ms-grid-column-align: left;
+      justify-self: left;
 }
 
 button:active,
 button:hover {
   background: #25273c;
   color: hsl(234, 39%, 85%);
-  transform: scale(1.2);
+  -webkit-transform: scale(1.2);
+      -ms-transform: scale(1.2);
+          transform: scale(1.2);
 }
 
+/* footer */
 footer {
   padding: 1em;
   text-align: center;
@@ -216,8 +117,167 @@ footer a {
   text-decoration: underline;
 }
 
+/* ===============
+    HOMEPAGE
+=============== */
+
+main {
+  width: 100vw;
+  height: 100vh;
+  background:-webkit-gradient(linear, left top, right top, from(rgba(37,39,60,.4)), to(rgba(0,212,255,.4))), url("basketball_court.jpg");
+  background:-o-linear-gradient(left, rgba(37,39,60,.4) 0%, rgba(0,212,255,.4) 100%), url("basketball_court.jpg");
+  background:linear-gradient(90deg, rgba(37,39,60,.4) 0%, rgba(0,212,255,.4) 100%), url("basketball_court.jpg");
+  background-position: 30% 90%;
+  background-size: cover;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+form {
+  width: 80%; 
+  height: 50%;
+  margin: 0 auto;
+}
+
+.search-bar {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr;
+  grid-template-columns: 1fr;
+  grid-column-gap: 1.5em;
+}
+
+.autocomplete {
+  padding: .75em;
+  background: #FFF;
+  color: #000;
+}
+
+input {
+  position: relative;
+  width: 100%;
+  margin-right: 2em;
+  padding: .75em;
+  z-index: 2;
+  border-radius: 100px;
+  outline: 0;
+  font-size: 1rem;
+  -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.12), inset 0 0 2px rgba(0, 0, 0, 0.19);
+          box-shadow: 0 0 5px rgba(0, 0, 0, 0.12), inset 0 0 2px rgba(0, 0, 0, 0.19);
+  -webkit-transition: all .3s ease;
+  -o-transition: all .3s ease;
+  transition: all .3s ease;
+}
+
+input:focus {
+  border: 2px solid rgba(0,212,255,.4);
+  -webkit-box-shadow: 0 0 15px 5px rgba(0, 153, 255, 0.315);
+          box-shadow: 0 0 15px 5px rgba(0, 153, 255, 0.315);
+  -webkit-transform: scale(1.05);
+      -ms-transform: scale(1.05);
+          transform: scale(1.05);
+}
+
+#nameList {
+  width: 90%;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  -ms-grid-column-align: center;
+      justify-self: center;
+}
+
+#nameList li {
+  margin: 0;
+  padding: 20px;
+  background: #FFF;
+  border-bottom: 1px solid #D8D8D8;
+  -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.14);
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.14);
+  list-style: none;
+  color: #25273c;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  cursor: pointer;
+  -webkit-transition: background 0.2s;
+  -o-transition: background 0.2s;
+  transition: background 0.2s;
+}
+
+/* ===============
+    RESULT PAGE
+=============== */
+
+.wrapper {
+  width: 100%;
+  padding: 2em;
+  background:-webkit-gradient(linear, left top, right top, from(rgba(37,39,60,.4)), to(rgba(0,212,255,.4))), url("basketball_court.jpg");
+  background:-o-linear-gradient(left, rgba(37,39,60,.4) 0%, rgba(0,212,255,.4) 100%), url("basketball_court.jpg");
+  background:linear-gradient(90deg, rgba(37,39,60,.4) 0%, rgba(0,212,255,.4) 100%), url("basketball_court.jpg");
+  background-size: cover;
+  background-position: 20% 65%;
+  background-repeat: no-repeat;
+  text-align: center;
+}
+
+.header {
+  width: 80%;
+  margin: 1.5em auto;
+  color: #FFF;
+  display: -ms-grid;
+  display: grid;
+  grid-gap: .75em;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
+}
+
+.container {
+  width: 75%;
+  margin: 1.5em auto;
+  position: relative;
+  display: -ms-grid;
+  display: grid;
+  grid-gap: 1.5em;
+}
+
+.accent {
+  font-family: 'Wallpoet', cursive;
+  font-size: 2rem;
+}
+
+.grid {
+  display: -ms-grid;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-gap: 2em;
+}
+
+.card {
+  padding: 1em;
+  background: -webkit-gradient(linear, left top, right top, from(rgba(37,39,60,.4)), to(rgba(0,212,255,.4)));
+  background: -o-linear-gradient(left, rgba(37,39,60,.4) 0%, rgba(0,212,255,.4) 100%);
+  background: linear-gradient(90deg, rgba(37,39,60,.4) 0%, rgba(0,212,255,.4) 100%);
+  border: 1px solid black;
+  border-radius: 5px;
+  -webkit-box-shadow: 0 0 10px 5px rgba(0, 0, 0, .3);
+          box-shadow: 0 0 10px 5px rgba(0, 0, 0, .3);
+}
+
 /* ====================
-      media queries
+      MEDIA QUERIES
 ==================== */
 
 @media (min-width: 650px) {
@@ -232,6 +292,7 @@ footer a {
   }
 
   .search-bar {
+    -ms-grid-columns: 1fr 200px;
     grid-template-columns: 1fr 200px;
   }
 
@@ -245,31 +306,44 @@ footer a {
   }
 
   .header {
+    -ms-grid-columns: 1fr .75em auto .75em 1fr;
     grid-template-columns: 1fr auto 1fr;
-    align-items: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
   }
 
   .header a {
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 1;
     grid-column: 1 / 2;
     width: 80%;
   }
   .header h1 {
-    grid-column: 2 / 3;
     font-size: 4rem;
+    -ms-grid-column: 2;
+    -ms-grid-column-span: 1;
+    grid-column: 2 / 3;
   }
 
   #age { 
+    -ms-grid-column: 1; 
+    -ms-grid-column-span: 1; 
     grid-column: 1 / 2;
-    justify-self: left;
+    -ms-grid-column-align: left;
+        justify-self: left;
   }
 
   #team { 
     grid-column: 3 / -1;
-    justify-self: right;
+    -ms-grid-column-align: right;
+        justify-self: right;
   }
 
   .button {
-    align-self: start;
+    -ms-flex-item-align: start;
+        -ms-grid-row-align: start;
+        align-self: start;
   }
 
   form {
@@ -283,7 +357,9 @@ footer a {
   button {
     margin: 0;
     grid-column: 2 / -1;
+    -ms-grid-row: 1;
     grid-row: 1;
-    justify-self: left;
+    -ms-grid-column-align: left;
+        justify-self: left;
   }
 }
