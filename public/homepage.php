@@ -33,7 +33,7 @@
 <footer>Made with <i class="fas fa-heart"></i> by Lauric - <a href="https://www.linkedin.com/in/lauric/" target="_blank"><i class="fab fa-linkedin-in"></a></i> <a href="https://github.com/Lauric-h" target="_blank"><i class="fab fa-github"></a></i></footer>
 
 <script>
-  ScrollReveal().reveal('.reveal', { distance: '200px', delay: 200, origin: 'bottom' });
+  ScrollReveal().reveal('.reveal', { distance: '200px', delay: 500, origin: 'bottom' });
 </script>
 <script src="public/autocomplete.js"></script>
 
