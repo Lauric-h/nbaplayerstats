@@ -40,10 +40,10 @@ require_once 'vendor/autoload.php';
     <h2 class="reveal">Différences passes / perte de balle / interceptions</h2>
     <div class="card reveal"><canvas id="doughtnutChart2021"></canvas></div>
     <div class="grid reveal">
-      <div class="grid-container card reveal"><canvas id="doughtnutChart2020"></canvas></div>
-      <div class="grid-container card reveal"><canvas id="doughtnutChart2019"></canvas></div>
-      <div class="grid-container card reveal"><canvas id="doughtnutChart2018"></canvas></div>
-      <div class="grid-container card reveal"><canvas id="doughtnutChart2017"></canvas></div>
+      <div class="grid-container card reveal doughtnutCard2020"><canvas id="doughtnutChart2020"></canvas></div>
+      <div class="grid-container card reveal doughtnutCard2019"><canvas id="doughtnutChart2019"></canvas></div>
+      <div class="grid-container card reveal doughtnutCard2018"><canvas id="doughtnutChart2018"></canvas></div>
+      <div class="grid-container card reveal doughtnutCard2017  "><canvas id="doughtnutChart2017"></canvas></div>
     </div>
   </div>
 

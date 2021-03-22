@@ -100,103 +100,122 @@ var chart = new Chart(ctx, {
   }
 });
 
-var doughnut2021 = document.getElementById('doughtnutChart2021').getContext('2d');
-var chart = new Chart(doughnut2021, {
-  type: 'doughnut',
-  data: {
-      labels: ['Assists', 'Turnovers', 'Steals'],
-      datasets: [{
+if (doughnutStats['year_2021']) {
+  var doughnut2021 = document.getElementById('doughtnutChart2021').getContext('2d');
+  var chart = new Chart(doughnut2021, {
+    type: 'doughnut',
+    data: {
+        labels: ['Assists', 'Turnovers', 'Steals'],
+        datasets: [{
+            backgroundColor: ['#BDD358', '#bc5090', '#ffa600'],
+            borderColor: ['#BDD358', '#bc5090', '#ffa600'],
+            data: doughnutStats['year_2021'][0]
+        },
+      ]
+    },
+    options: {
+        title: {
+          display: true,
+          text: 'Saison 2020-2021',
+        },
+      }
+  });
+} else {
+  document.querySelector('.doughtnutCard2021').innerHTML = 'Statistiques non disponibles';
+}
+
+if (doughnutStats['year_2020']) {
+  var doughnut2020 = document.getElementById('doughtnutChart2020').getContext('2d');
+  var chart = new Chart(doughnut2020, {
+    type: 'doughnut',
+    data: {
+        labels: ['Assists', 'Turnovers', 'Steals'],
+        datasets: [{
           backgroundColor: ['#BDD358', '#bc5090', '#ffa600'],
           borderColor: ['#BDD358', '#bc5090', '#ffa600'],
-          data: doughnutStats['year_2021'][0]
-      },
-    ]
-  },
-  options: {
-      title: {
-        display: true,
-        text: 'Saison 2020-2021',
-      },
-    }
-});
+          data: doughnutStats['year_2020'][0]
+        },
+      ]
+    },
+    options: {
+        title: {
+          display: true,
+          text: 'Saison 2019-2020',
+        },
+      }
+  });
+} else {
+  document.querySelector('.doughtnutCard2020').innerHTML = 'Statistiques non disponibles';
+}
 
+if (doughnutStats['year_2019'] != undefined) {
+  var doughnut2019 = document.getElementById('doughtnutChart2019').getContext('2d');
+  var chart = new Chart(doughnut2019, {
+    type: 'doughnut',
+    data: {
+        labels: ['Assists', 'Turnovers', 'Steals'],
+        datasets: [{
+          backgroundColor: ['#BDD358', '#bc5090', '#ffa600'],
+          borderColor: ['#BDD358', '#bc5090', '#ffa600'],
+          data: doughnutStats['year_2019'][0]
+        },
+      ]
+    },
+    options: {
+        title: {
+          display: true,
+          text: 'Saison 2018-2019',
+        },
+      }
+  });
+} else {
+  document.querySelector('.doughtnutCard2019').innerHTML = 'Statistiques non disponibles';
+}
 
-var doughnut2020 = document.getElementById('doughtnutChart2020').getContext('2d');
-var chart = new Chart(doughnut2020, {
-  type: 'doughnut',
-  data: {
-      labels: ['Assists', 'Turnovers', 'Steals'],
-      datasets: [{
-        backgroundColor: ['#BDD358', '#bc5090', '#ffa600'],
-        borderColor: ['#BDD358', '#bc5090', '#ffa600'],
-        data: doughnutStats['year_2020'][0]
-      },
-    ]
-  },
-  options: {
-      title: {
-        display: true,
-        text: 'Saison 2019-2020',
-      },
-    }
-});
+if (doughnutStats['year_2018']) {
+  var doughnut2018 = document.getElementById('doughtnutChart2018').getContext('2d');
+  var chart = new Chart(doughnut2018, {
+    type: 'doughnut',
+    data: {
+        labels: ['Assists', 'Turnovers', 'Steals'],
+        datasets: [{
+          backgroundColor: ['#BDD358', '#bc5090', '#ffa600'],
+          borderColor: ['#BDD358', '#bc5090', '#ffa600'],
+          data: doughnutStats['year_2018'][0]
+        },
+      ]
+    },
+    options: {
+        title: {
+          display: true,
+          text: 'Saison 2017-2018',
+        },
+      }
+  });
+} else {
+  document.querySelector('.doughtnutCard2018').innerHTML = 'Statistiques non disponibles';
+}
 
-var doughnut2019 = document.getElementById('doughtnutChart2019').getContext('2d');
-var chart = new Chart(doughnut2019, {
-  type: 'doughnut',
-  data: {
-      labels: ['Assists', 'Turnovers', 'Steals'],
-      datasets: [{
-        backgroundColor: ['#BDD358', '#bc5090', '#ffa600'],
-        borderColor: ['#BDD358', '#bc5090', '#ffa600'],
-        data: doughnutStats['year_2019'][0]
-      },
-    ]
-  },
-  options: {
-      title: {
-        display: true,
-        text: 'Saison 2018-2019',
-      },
-    }
-});
-
-var doughnut2018 = document.getElementById('doughtnutChart2018').getContext('2d');
-var chart = new Chart(doughnut2018, {
-  type: 'doughnut',
-  data: {
-      labels: ['Assists', 'Turnovers', 'Steals'],
-      datasets: [{
-        backgroundColor: ['#BDD358', '#bc5090', '#ffa600'],
-        borderColor: ['#BDD358', '#bc5090', '#ffa600'],
-        data: doughnutStats['year_2018'][0]
-      },
-    ]
-  },
-  options: {
-      title: {
-        display: true,
-        text: 'Saison 2017-2018',
-      },
-    }
-});
-
-var doughnut2017 = document.getElementById('doughtnutChart2017').getContext('2d');
-var chart = new Chart(doughnut2017, {
-  type: 'doughnut',
-  data: {
-      labels: ['Assists', 'Turnovers', 'Steals'],
-      datasets: [{
-        backgroundColor: ['#BDD358', '#bc5090', '#ffa600'],
-        borderColor: ['#BDD358', '#bc5090', '#ffa600'],
-        data: doughnutStats['year_2017'][0]
-      },
-    ]
-  },
-  options: {
-      title: {
-        display: true,
-        text: 'Saison 2016-2017',
-      },
-    }
-});
+if (doughnutStats['year_2017']) {
+  var doughnut2017 = document.getElementById('doughtnutChart2017').getContext('2d');
+  var chart = new Chart(doughnut2017, {
+    type: 'doughnut',
+    data: {
+        labels: ['Assists', 'Turnovers', 'Steals'],
+        datasets: [{
+          backgroundColor: ['#BDD358', '#bc5090', '#ffa600'],
+          borderColor: ['#BDD358', '#bc5090', '#ffa600'],
+          data: doughnutStats['year_2017'][0]
+        },
+      ]
+    },
+    options: {
+        title: {
+          display: true,
+          text: 'Saison 2016-2017',
+        },
+      }
+  });
+} else {
+  document.querySelector('.doughtnutCard2017').innerHTML = 'Statistiques non disponibles';
+}
