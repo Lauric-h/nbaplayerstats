@@ -83,6 +83,7 @@ button {
   grid-row: 1;
   -ms-grid-column-align: left;
       justify-self: left;
+  justify-self: center;
   align-self: center;
 }
 
@@ -167,6 +168,7 @@ input {
   z-index: 2;
   grid-column: 1;
   grid-row: 1;
+  border: none;
   border-radius: 100px;
   outline: 0;
   font-size: 1rem;
@@ -214,11 +216,6 @@ input:focus {
   -webkit-transition: background 0.2s;
   -o-transition: background 0.2s;
   transition: background 0.2s;
-}
-
-button {
-  justify-self: center;
-  align-self: center;
 }
 
 /* ===============
@@ -342,7 +339,7 @@ button {
     grid-column: 1 / 2;
     -ms-grid-column-align: left;
         justify-self: left;
-  }James
+  }
 
   #team { 
     grid-column: 3 / -1;

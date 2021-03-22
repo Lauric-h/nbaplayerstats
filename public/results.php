@@ -43,7 +43,7 @@ require_once 'vendor/autoload.php';
       <div class="grid-container card reveal doughtnutCard2020"><canvas id="doughtnutChart2020"></canvas></div>
       <div class="grid-container card reveal doughtnutCard2019"><canvas id="doughtnutChart2019"></canvas></div>
       <div class="grid-container card reveal doughtnutCard2018"><canvas id="doughtnutChart2018"></canvas></div>
-      <div class="grid-container card reveal doughtnutCard2017  "><canvas id="doughtnutChart2017"></canvas></div>
+      <div class="grid-container card reveal doughtnutCard2017"><canvas id="doughtnutChart2017"></canvas></div>
     </div>
   </div>
 
