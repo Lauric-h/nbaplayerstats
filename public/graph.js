@@ -20,7 +20,7 @@ for (let i = 0; i < labels.length; i++) {
   threePoints.push(stats[labels[i]]['three_pct'] * 100)
   twoPoints.push(stats[labels[i]]['two_pct'] * 100)
   freeThrows.push(stats[labels[i]]['ftp'] * 100)
-  // for doughtnut chart
+  // for doughnut chart
   doughnutStats[labels[i]] = [[stats[labels[i]]['ast'], stats[labels[i]]['tov'], stats[labels[i]]['stl']]];
 }
 
@@ -101,7 +101,7 @@ var chart = new Chart(ctx, {
 });
 
 if (doughnutStats['year_2021']) {
-  var doughnut2021 = document.getElementById('doughtnutChart2021').getContext('2d');
+  var doughnut2021 = document.getElementById('doughnutChart2021').getContext('2d');
   var chart = new Chart(doughnut2021, {
     type: 'doughnut',
     data: {
@@ -121,11 +121,11 @@ if (doughnutStats['year_2021']) {
       }
   });
 } else {
-  document.querySelector('.doughtnutCard2021').innerHTML = 'Statistiques non disponibles';
+  document.querySelector('.doughnutCard2021').innerHTML = 'Saison 2020-2021 : Statistiques non disponibles';
 }
 
 if (doughnutStats['year_2020']) {
-  var doughnut2020 = document.getElementById('doughtnutChart2020').getContext('2d');
+  var doughnut2020 = document.getElementById('doughnutChart2020').getContext('2d');
   var chart = new Chart(doughnut2020, {
     type: 'doughnut',
     data: {
@@ -145,11 +145,11 @@ if (doughnutStats['year_2020']) {
       }
   });
 } else {
-  document.querySelector('.doughtnutCard2020').innerHTML = 'Statistiques non disponibles';
+  document.querySelector('.doughnutCard2020').innerHTML = 'Saison 2019-2020 : Statistiques non disponibles';
 }
 
 if (doughnutStats['year_2019'] != undefined) {
-  var doughnut2019 = document.getElementById('doughtnutChart2019').getContext('2d');
+  var doughnut2019 = document.getElementById('doughnutChart2019').getContext('2d');
   var chart = new Chart(doughnut2019, {
     type: 'doughnut',
     data: {
@@ -169,11 +169,11 @@ if (doughnutStats['year_2019'] != undefined) {
       }
   });
 } else {
-  document.querySelector('.doughtnutCard2019').innerHTML = 'Statistiques non disponibles';
+  document.querySelector('.doughnutCard2019').innerHTML = 'Statistiques non disponibles';
 }
 
 if (doughnutStats['year_2018']) {
-  var doughnut2018 = document.getElementById('doughtnutChart2018').getContext('2d');
+  var doughnut2018 = document.getElementById('doughnutChart2018').getContext('2d');
   var chart = new Chart(doughnut2018, {
     type: 'doughnut',
     data: {
@@ -193,11 +193,11 @@ if (doughnutStats['year_2018']) {
       }
   });
 } else {
-  document.querySelector('.doughtnutCard2018').innerHTML = 'Statistiques non disponibles';
+  document.querySelector('.doughnutCard2018').innerHTML = 'Saison 2017-2018 : Statistiques non disponibles';
 }
 
 if (doughnutStats['year_2017']) {
-  var doughnut2017 = document.getElementById('doughtnutChart2017').getContext('2d');
+  var doughnut2017 = document.getElementById('doughnutChart2017').getContext('2d');
   var chart = new Chart(doughnut2017, {
     type: 'doughnut',
     data: {
@@ -217,5 +217,5 @@ if (doughnutStats['year_2017']) {
       }
   });
 } else {
-  document.querySelector('.doughtnutCard2017').innerHTML = 'Statistiques non disponibles';
+  document.querySelector('.doughnutCard2017').innerHTML = 'Saison 2016-2017 : Statistiques non disponibles';
 }
