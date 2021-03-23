@@ -5,6 +5,13 @@
 * Browsers: last 4 version
 */
 
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v7.0.29,
+* Autoprefixer: v9.7.6
+* Browsers: last 4 version
+*/
+
 *,
 *::before,
 *::after {
@@ -83,8 +90,10 @@ button {
   grid-row: 1;
   -ms-grid-column-align: left;
       justify-self: left;
-  justify-self: center;
-  align-self: center;
+  -ms-grid-column-align: center;
+      justify-self: center;
+  -ms-grid-row-align: center;
+      align-self: center;
 }
 
 button:active,
@@ -123,9 +132,9 @@ footer a {
 
 main {
   width: 100%;
-  height: 100vh;
-  background:-webkit-gradient(linear, left top, right top, from(rgba(37,39,60,.4)), to(rgba(0,212,255,.4))), url("basketball_court.jpg");
+  height: 95vh;
   background:-o-linear-gradient(left, rgba(37,39,60,.4) 0%, rgba(0,212,255,.4) 100%), url("basketball_court.jpg");
+  background:-webkit-gradient(linear, left top, right top, from(rgba(37,39,60,.4)), to(rgba(0,212,255,.4))), url("basketball_court.jpg");
   background:linear-gradient(90deg, rgba(37,39,60,.4) 0%, rgba(0,212,255,.4) 100%), url("basketball_court.jpg");
   background-position: 30% 90%;
   background-size: cover;
@@ -142,6 +151,7 @@ main {
 
 form {
   width: 80%; 
+  max-width: 1500px;
   height: 50%;
   margin: 0 auto;
 }
@@ -151,7 +161,9 @@ form {
   display: grid;
   -ms-grid-columns: 1fr;
   grid-template-columns: 1fr 80px;
-  align-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .autocomplete {
@@ -166,7 +178,9 @@ input {
   margin-right: 2em;
   padding: .75em;
   z-index: 2;
+  -ms-grid-column: 1;
   grid-column: 1;
+  -ms-grid-row: 1;
   grid-row: 1;
   border: none;
   border-radius: 100px;
@@ -225,8 +239,8 @@ input:focus {
 .wrapper {
   width: 100%;
   padding: 2em;
-  background:-webkit-gradient(linear, left top, right top, from(rgba(37,39,60,.4)), to(rgba(0,212,255,.4))), url("basketball_court.jpg");
   background:-o-linear-gradient(left, rgba(37,39,60,.4) 0%, rgba(0,212,255,.4) 100%), url("basketball_court.jpg");
+  background:-webkit-gradient(linear, left top, right top, from(rgba(37,39,60,.4)), to(rgba(0,212,255,.4))), url("basketball_court.jpg");
   background:linear-gradient(90deg, rgba(37,39,60,.4) 0%, rgba(0,212,255,.4) 100%), url("basketball_court.jpg");
   background-size: cover;
   background-position: 20% 65%;
@@ -246,6 +260,12 @@ input:focus {
           justify-content: center;
   text-align: center;
 }
+
+.container,
+.header {
+  max-width: 1500px;
+}
+
 
 .container {
   width: 100%;
@@ -270,8 +290,8 @@ input:focus {
 
 .card {
   padding: 1em;
-  background: -webkit-gradient(linear, left top, right top, from(rgba(37,39,60,.4)), to(rgba(0,212,255,.4)));
   background: -o-linear-gradient(left, rgba(37,39,60,.4) 0%, rgba(0,212,255,.4) 100%);
+  background: -webkit-gradient(linear, left top, right top, from(rgba(37,39,60,.4)), to(rgba(0,212,255,.4)));
   background: linear-gradient(90deg, rgba(37,39,60,.4) 0%, rgba(0,212,255,.4) 100%);
   border: 1px solid black;
   border-radius: 5px;
@@ -286,10 +306,11 @@ input:focus {
 @media (min-width: 650px) {
   .container {
     width: 80%;
+    grid-template-columns: repeat(auto-fit, minmax(600px, 1fr));
   }
 
   .grid {
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   }
 }
 
@@ -305,7 +326,7 @@ input:focus {
 
   .container,
   .header {
-    width: 60%;
+    width: 85%;
   }
 
   .container {

@@ -26,7 +26,7 @@ require_once 'vendor/autoload.php';
 
 <body>
   <div class="wrapper">
-  <a href="/" class="button">Retour à la recherche</a>
+    <a href="/" class="button">Retour à la recherche</a>
     <div class="header">
       <h1><?= $_SESSION['name']; ?></h1>
       <p class="info" id="age"><span class="accent"><?= $_SESSION['stats']['year_2021']['age']; ?></span> ans</p>
@@ -37,7 +37,7 @@ require_once 'vendor/autoload.php';
   <div class="container">
     <div class="card reveal"><canvas id="lineChart"></canvas></div>
     <div class="card reveal"><canvas id="barChart"></canvas></div>
-    <h2 class="reveal">Différences passes / perte de balle / interceptions</h2>
+    <!-- <h2 class="reveal">Différences passes / perte de balle / interceptions</h2> -->
     <div class="card reveal"><canvas id="doughtnutChart2021"></canvas></div>
     <div class="grid reveal">
       <div class="grid-container card reveal doughtnutCard2020"><canvas id="doughtnutChart2020"></canvas></div>
